@@ -1,0 +1,93 @@
+ID,Study id,None
+Eligible,"yes, no, don't know (yet)","{1, yes; 2, no; 3, don't know}"
+Exclude_reason,"reason for exlusion, or missing data",None
+ID_P,ID Parent (mother or father),"{1, mother; 2, father}"
+ID_subgroup,"E.g., country or specific subsample",None
+ID_iv,Independent variable,None
+ID_dv,Dependent variable,None
+ID_report,ID reporter IV-DV,None
+ID_Wave,ID Wave,None
+Authors,Authors,None
+Pub_Year,Year of Publication,None
+Title,Title Article,None
+Journal,Journal,None
+Doi,Doi,None
+Pub_type,Type of Publication,"{1, journal article; 2, book chapter, 3, dissertation; 4, unpublished data; 5, presentation; 6, other}"
+Design,Crossectional vs longitudinal,"{1, cross; 2, longitudinal; 3, experimental}"
+Waves,Number of waves,None
+Age_measure,Age in years or months,"{1, Years; 2, months}"
+Age_m_iv,Age mean independent variable,None
+Age_sd_iv,Age SD independent variable,None
+Age_m_dv,Age mean dependent variable,None
+Age_sd_dv,Age SD dependent variable,None
+male,%male,None
+N,N children,None
+N_m,N mothers,None
+N_f,N fathers,None
+SES,"SES description, Renske will look at this",None
+Country,If codes are used: https://www.worldatlas.com/aatlas/ctycodes.htm,None
+P_Instrument,Instrument used to measure parenting behavior,None
+P_OBS,Observation Parenting,"{0, Nee; 1, ja}"
+P_PR,Parenting parent report,"{0, Nee; 1, ja}"
+P_SPR,Parenting spouse report,"{0, Nee; 1, ja}"
+P_CR,Parenting child report,"{0, Nee; 1, ja}"
+P_MIX,"Parenting Mixed reports (e.g., latent variable)","{0, Nee; 1, ja}"
+P_Inv,Parental Involvement,"{0, Nee; 1, ja}"
+P_pos,Positive Parenting,"{0, Nee; 1, ja}"
+P_Neg,Parental Negativity,"{0, Nee; 1, ja}"
+P_Inc,Inconsistent Parenting,"{0, Nee; 1, ja}"
+P_War,Parental Warmth,"{0, Nee; 1, ja}"
+P_Acc,Parental Acceptance,"{0, Nee; 1, ja}"
+P_Sen,Parental Sensitivity,"{0, Nee; 1, ja}"
+P_Sup,Parental Support,"{0, Nee; 1, ja}"
+P_Mon_poor,Parental Poor Monitoring,"{0, Nee; 1, ja}"
+P_Mon,Parental Monitoring,"{0, Nee; 1, ja}"
+P_dir,Parental Directiveness,"{0, Nee; 1, ja}"
+P_Dem,Parental Demanding,"{0, Nee; 1, ja}"
+P_Aut,Parental Autonomy Support,"{0, Nee; 1, ja}"
+P_Int,Parental Intrusiveness,"{0, Nee; 1, ja}"
+P_prot,Parental Overprotection,"{0, Nee; 1, ja}"
+P_Con,Parental Control,"{0, Nee; 1, ja}"
+P_Str_Con,Parental Strict Control,"{0, Nee; 1, ja}"
+P_B_Con,Parental Behavioral Control,"{0, Nee; 1, ja}"
+P_P_Con,Parental Psycological Control,"{0, Nee; 1, ja}"
+P_Pun,Parental Punishment,"{0, Nee; 1, ja}"
+P_Dis_indu,Parental Inductive Discipline,"{0, Nee; 1, ja}"
+P_Dis,Parental Discipline,"{0, Nee; 1, ja}"
+P_C_Dis,Parental Consistent Discipline,"{0, Nee; 1, ja}"
+P_I_Dis,Parental Inconsistent Discipline,"{0, Nee; 1, ja}"
+P_Hos,Parental Hostility,"{0, Nee; 1, ja}"
+P_har_low,Low Harsh Parenting,"{0, Nee; 1, ja}"
+P_cor_pun,Parental Corporal Punishment,"{0, Nee; 1, ja}"
+P_har,Harsh Parenting,"{0, Nee; 1, ja}"
+P_Rej,Parental rejection,"{0, Nee; 1, ja}"
+PB_instrument,Instrument used to measure Prosocial Behavior,None
+PB_OBS,Observation Prosocial Behavior,"{0, Nee; 1, ja}"
+PB_PR,Prosocial behavior parent report,"{0, Nee; 1, ja}"
+PB_PR_WHOM,Prosocial behavior parent report by whom,"{1, mother; 2, father; 3, both}"
+PB_CR,Prosocial behavior child report,"{0, Nee; 1, ja}"
+PB_TR,Prosocial behavior teacher report,"{0, Nee; 1, ja}"
+PB_FR,Prosocial behavior peer report,"{0, Nee; 1, ja}"
+PB_MIX,"Prosocial behavior mixed reports (e.g., latent variable)","{0, Nee; 1, ja}"
+PB_PB,Prosocial behavior,"{0, Nee; 1, ja}"
+PB_toM,Prosocial behavior towards mother,"{0, Nee; 1, ja}"
+PB_toF,Prosocial behavior towards father,"{0, Nee; 1, ja}"
+PB_toFR,Prosocial behavior towards friends,"{0, Nee; 1, ja}"
+PB_toFAM,Prosocial behavior towards family,"{0, Nee; 1, ja}"
+PB_toSTR,Prosocial behavior toward strangers,"{0, Nee; 1, ja}"
+PB_Mor,DV Prosocial moral reasoning,"{0, Nee; 1, ja}"
+PB_Alt,DV Altruisme,"{0, Nee; 1, ja}"
+PB_Emp,DV Empathy,"{0, Nee; 1, ja}"
+PB_Sym,DV Sympathy,"{0, Nee; 1, ja}"
+PB_com,DV Social Competence,"{0, Nee; 1, ja}"
+PB_coop,DV cooperation,"{0, Nee; 1, ja}"
+PB_sha,DV sharing,"{0, Nee; 1, ja}"
+PB_ada,DV adaptive skills,"{0, Nee; 1, ja}"
+PB_soc,DV sociability,"{0, Nee; 1, ja}"
+M_IV,Mean IV,None
+M_IV_SD,SD IV,None
+M_DV,Mean DV,None
+M_DV_SD,SD DV,None
+R,Correlation IV and DV,None
+R_m_f,correlation between IV mother and father,None
+B,beta,None
