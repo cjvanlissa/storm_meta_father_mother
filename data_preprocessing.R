@@ -49,5 +49,6 @@ if(!all(na.omit(rowSums(cbind(df_mother$R_m_f, -1*df_mother$R_m_f_check))) == 0)
   df_mother[!rowSums(cbind(df_mother$R_m_f, -1*df_mother$R_m_f_check)) == 0& !is.na(rowSums(cbind(df_mother$R_m_f, -1*df_mother$R_m_f_check))), c("R_m_f", "R_m_f_check", "Authors", "Pub_Year") ]
   stop("R_m_f was different between the mother and father rows")
 }
+df_mother$R_m_f_check <- NULL
 
 write.csv(df_mother, "data_cleaned.csv", row.names = FALSE)
