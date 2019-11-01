@@ -22,8 +22,7 @@ fit_mix <- estimate_profiles(df$Age_m_dv, 1:3)
 
 #table(tmp$model_1_class_2$dff$Class)
 
-df$Age_group <- tmp$model_1_class_2$dff$Class
-# Do this for the final data, so number of rows is correct
+df$age_group <- factor(fit_mix$model_1_class_2$dff$Class, labels = c("Young", "Old"))
 
 df$same_reporter <- FALSE
 df$same_reporter[df$P_CR == "Ja" & df$PB_CR == "Ja" | df$P_PR == "Ja" &  df$PB_PR == "Ja"  | df$P_OBS == "Ja" &  df$PB_OBS == "Ja"] <- TRUE

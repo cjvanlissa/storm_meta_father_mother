@@ -2,8 +2,8 @@ library(metaSEM)
 library(robumeta)
 library(clubSandwich)
 library(metafor)
-df_main <- read.csv("data_cleaned.csv")
-which_mod <- NULL
+df_main <- read.csv("data_cleaned_mods.csv")
+which_mod <- "age_group"
 
 names(df_main)[grep("^R", names(df_main))] <- c("R_m_a", "R_m_f", "R_f_a")
 df_main$ID_sample <- gsub(" ", "", paste0(df_main$ID, df_main$ID_subgroup))
@@ -25,6 +25,8 @@ if(is.null(which_mod)){
   df_es_wide$moderator <-
     factor(df_main[[which_mod]])
 }
+
+df_es_wide <- df_es_wide[!is.na(df_es_wide$moderator), ]
 
 subgroups <- lapply(levels(df_es_wide$moderator), function(x) {
   # x <- levels(df_es_wide$moderator)[1]
