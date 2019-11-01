@@ -32,9 +32,13 @@ subgroups <- lapply(levels(df_es_wide$moderator), function(x) {
     df_es_wide[df_es_wide$moderator == x, -ncol(df_es_wide)]
   
   # Since A, M, F all have different N, use the minimal known N per sample ID
-  df_tmp$use_N <- do.call(c, tapply(apply(df_tmp[, grep("^N", names(df_tmp)), ], 1, min, na.rm = TRUE), factor(df_tmp$ID_sample), function(x){rep(min(x), length(x))}))
+  min_Ns <- tapply(apply(df_tmp[, grep("^N", names(df_tmp)), ], 1, min, na.rm = TRUE), factor(df_tmp$ID_sample), min)
+  rles <- rle(df_tmp$ID_sample)
+  rles$values <- min_Ns[match(rles$values, names(min_Ns))]
+  inverse.rle(rles)
   
-  N_total_unique <- sum(tapply(apply(df_tmp[, grep("^N", names(df_tmp)), ], 1, min, na.rm = TRUE), factor(df_tmp$ID_sample), min, na.rm = TRUE))
+  df_tmp$use_N <- inverse.rle(rles)
+  
   # Rename data for melting
   names(df_tmp) <-
     gsub("^R_", "R\\.", names(df_tmp))
@@ -47,9 +51,6 @@ subgroups <- lapply(levels(df_es_wide$moderator), function(x) {
     varying = grep("^R", names(df_tmp), value = TRUE),
     timevar = 'which_cor'
   )
-  
-  # Drop duplicated effect sizes
-  #df_tmp <- df_tmp[!duplicated(df_tmp$ID_ES),]
   
   # Calculate variance of the effect size
   df_tmp <-
@@ -85,7 +86,6 @@ subgroups <- lapply(levels(df_es_wide$moderator), function(x) {
   
   list(
     N_min = df_tmp$use_N,
-    N_total_unique = N_total_unique,
     robust_estimates = robust_estimates,
     Cov = Cov,
     aCov = aCov,
