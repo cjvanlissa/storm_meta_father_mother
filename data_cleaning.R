@@ -1,11 +1,9 @@
-if(!require(checkpoint)) install.packages("checkpoint")
-checkpoint("2019-09-23")
 if(!require(foreign)) install.packages("foreign")
 if(!require(psych)) install.packages("psych")
 if(!require(devtools)) install.packages("devtools")
 if(!require(motley)) install_github("cjvanlissa/motley")
 
-spss_data <- read.spss("Meta-codebook_23-09-2019.sav", to.data.frame = TRUE)
+spss_data <- read.spss("Meta-codebook_31-10-2019.sav", to.data.frame = TRUE)
 spss_data[spss_data == 999] <- NA
 
 

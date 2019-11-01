@@ -1,5 +1,19 @@
 df <- read.csv("data.csv", stringsAsFactors = FALSE)
 
+# Categorize parenting behaviors ------------------------------------------
+positive <- c("P_W", "P_S", "P_B", "P_po")
+negative <- c("P_P", "P_I", "P_H", "P_ne")
+
+df$p_negative <- apply(df[negative], 1, function(x){any(x == "Ja")})
+
+# Reverse-code negative correlations
+df$R[which(df$p_negative)] <- -1*df$R[which(df$p_negative)]
+
+# Check which correlations are still negative after reverse-coding
+tmp <- df[which(df$p_negative), c("R", negative)]
+colSums(tmp[tmp$R < 0, ][, -1] == "Ja", na.rm =T)
+
+mean(df$R[df$P_Dem == "Ja"], na.rm= T)
 
 # Drop rows ---------------------------------------------------------------
 # Drop non-eligible
@@ -18,6 +32,8 @@ all(run_length$lengths[seq(1, length(run_length$lengths), by = 2)]== run_length$
 
 df$id_merge <- gsub(" ", "", apply(df[, grep("^ID(?!_P$)", names(df), value = TRUE, perl = TRUE)], 1, paste, collapse = "_"))
 
+df$id_merge <- gsub("_(\\d+|NA)$", "", df$id_merge)
+
 #df <- df[!is.na(df$id_merge), ]
 
 tmp <- table(df$ID_P, df$id_merge)
@@ -29,7 +45,7 @@ single_ids <- colnames(tmp)[apply(tmp, 2, sum) == 1]
 
 #tmp <- df[df$id_merge %in% single_ids, c(grep("^ID(?!_P$)", names(df), value = TRUE, perl = TRUE), "ID_P")]
 
-df$id_merge[df$id_merge %in% single_ids] <- gsub("(F-F|F-|father-|M-M|M-|mother-)", "", df$id_merge[df$id_merge %in% single_ids])
+df$id_merge[df$id_merge %in% single_ids] <- gsub("(warmth|F-F|F-|father-|M-M|M-|mother-)", "", df$id_merge[df$id_merge %in% single_ids])
 
 # Merge data --------------------------------------------------------------
 
