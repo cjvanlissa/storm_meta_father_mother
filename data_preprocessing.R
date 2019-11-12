@@ -1,8 +1,8 @@
 df <- read.csv("data.csv", stringsAsFactors = FALSE)
 
 # Categorize parenting behaviors ------------------------------------------
-positive <- c("P_W", "P_S", "P_B", "P_po")
-negative <- c("P_P", "P_I", "P_H", "P_ne")
+positive <- c("P_W", "P_S", "P_po")
+negative <- c("P_P", "P_I", "P_H", "P_ne", "P_B")
 
 df$p_negative <- apply(df[negative], 1, function(x){any(x == "Ja")})
 
