@@ -1,5 +1,5 @@
 library(metaSEM)
-load("age_grouppooled.RData")
+load("same_wavepooled.RData")
 
 # Name the subgroups list
 #names(subgroups) <- gsub("[- ]", "", names(subgroups))
