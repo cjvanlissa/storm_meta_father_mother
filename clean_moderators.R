@@ -14,8 +14,11 @@ df$Age_m_dv[df$Age_measure %in% "Months"] <- df$Age_m_dv[df$Age_measure %in% "Mo
 #plot(density(df$Age_m_dv[df$Age_m_dv<18], na.rm = TRUE))
 #hist(df$Age_m_dv[df$Age_m_dv<18], na.rm = TRUE)
 
-
 fit_mix <- estimate_profiles(df$Age_m_dv, 1:3)
+
+#create moderator variable for parenting dimension positive vs. negative
+df$p_dimension[df$P_W == "Ja" | df$P_S == "Ja"| df$P_po =="Ja"] <- "positive"
+df$p_dimension[df$P_P== "Ja" | df$P_I== "Ja"| df$P_H=="Ja" | df$P_ne=="Ja" | df$P_B== "Ja"] <- "negative"
 
 #plot_profiles(tmp)
 #plot_density(fit_mix)
