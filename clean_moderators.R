@@ -16,10 +16,6 @@ df$Age_m_dv[df$Age_measure %in% "Months"] <- df$Age_m_dv[df$Age_measure %in% "Mo
 
 fit_mix <- estimate_profiles(df$Age_m_dv, 1:3)
 
-#create moderator variable for parenting dimension positive vs. negative
-df$p_dimension[df$P_W == "Ja" | df$P_S == "Ja"| df$P_po =="Ja"] <- "positive"
-df$p_dimension[df$P_P== "Ja" | df$P_I== "Ja"| df$P_H=="Ja" | df$P_ne=="Ja" | df$P_B== "Ja"] <- "negative"
-
 #plot_profiles(tmp)
 #plot_density(fit_mix)
 
@@ -37,4 +33,21 @@ df$country_group[trimws(df$Country) %in% c("China", "CO")] <- "Non-Western"
 df$country_group[grepl(",", df$Country)] <- "Other"
 #table(df$country_group)
 
+#create moderator variable for parenting dimension positive vs. negative, positive vs. negative vs. control, warm vs sens vs neg vs cont.
+df$p_dimension[df$P_W == "Ja" | df$P_S == "Ja"| df$P_po =="Ja"] <- "positive"
+df$p_dimension[df$P_P== "Ja" | df$P_I== "Ja"| df$P_H=="Ja" | df$P_ne=="Ja" | df$P_C== "Ja"] <- "negative"
+#table(df$p_dimension)
+
+df$p_cluster[df$P_W == "Ja" | df$P_S == "Ja"| df$P_po =="Ja"] <- "positive"
+df$p_cluster[df$P_P== "Ja" | df$P_I== "Ja"| df$P_H=="Ja" | df$P_ne=="Ja"] <- "negative"
+df$p_cluster[df$P_C== "Ja"] <- "control"
+#table(df$p_cluster)
+
+df$p_2cluster[df$P_W == "Ja" ] <- "warm"
+df$p_2cluster[df$P_S == "Ja" ] <- "sensitive"
+df$p_2cluster[df$P_P== "Ja" | df$P_I== "Ja"| df$P_H=="Ja" | df$P_ne=="Ja"] <- "negative"
+df$p_2cluster[df$P_C== "Ja"] <- "control"
+#table(df$p_2cluster)
+
 write.csv(df, "data_cleaned_mods.csv", row.names = FALSE)
+
