@@ -1,7 +1,7 @@
 df <- read.csv("data.csv", stringsAsFactors = FALSE)
 
 # Categorize parenting behaviors ------------------------------------------
-positive <- c("P_W", "P_S", "P_B", "P_po")
+positive <- c("P_W", "P_S", "P_po", "P_C")
 negative <- c("P_P", "P_I", "P_H", "P_ne")
 
 df$p_negative <- apply(df[negative], 1, function(x){any(x == "Ja")})
@@ -68,3 +68,4 @@ if(!all(na.omit(rowSums(cbind(df_mother$R_m_f, -1*df_mother$R_m_f_check))) == 0)
 df_mother$R_m_f_check <- NULL
 
 write.csv(df_mother, "data_cleaned.csv", row.names = FALSE)
+

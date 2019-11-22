@@ -5,6 +5,8 @@ library(metafor)
 df_main <- read.csv("data_cleaned_mods.csv")
 which_mod <- "age_group"
 
+#TEST
+
 names(df_main)[grep("^R", names(df_main))] <- c("R_m_a", "R_m_f", "R_f_a")
 df_main$ID_sample <- gsub(" ", "", paste0(df_main$ID, df_main$ID_subgroup))
 #table(df_main$ID_sample)
