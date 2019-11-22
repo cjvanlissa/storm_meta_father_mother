@@ -46,6 +46,7 @@ single_ids <- colnames(tmp)[apply(tmp, 2, sum) == 1]
 #tmp <- df[df$id_merge %in% single_ids, c(grep("^ID(?!_P$)", names(df), value = TRUE, perl = TRUE), "ID_P")]
 
 df$id_merge[df$id_merge %in% single_ids] <- gsub("(warmth|F-F|F-|father-|M-M|M-|mother-)", "", df$id_merge[df$id_merge %in% single_ids])
+df$id_merge[df$id_merge %in% single_ids] <- gsub("_.{0,4}?$", "", df$id_merge[df$id_merge %in% single_ids], perl = TRUE)
 
 # Merge data --------------------------------------------------------------
 

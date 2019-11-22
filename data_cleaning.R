@@ -3,7 +3,7 @@ if(!require(psych)) install.packages("psych")
 if(!require(devtools)) install.packages("devtools")
 if(!require(motley)) install_github("cjvanlissa/motley")
 
-spss_data <- read.spss("Meta-codebook_31-10-2019.sav", to.data.frame = TRUE)
+spss_data <- read.spss("Meta-codebook_18-11-2019.sav", to.data.frame = TRUE)
 spss_data[spss_data == 999] <- NA
 
 
