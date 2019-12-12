@@ -2,7 +2,7 @@ df <- read.csv("data.csv", stringsAsFactors = FALSE)
 
 # Categorize parenting behaviors ------------------------------------------
 positive <- c("P_W", "P_S", "P_po", "P_C")
-negative <- c("P_P", "P_I", "P_H", "P_ne")
+negative <- c("P_P", "P_H", "P_ne", "P_I")
 
 df$p_negative <- apply(df[negative], 1, function(x){any(x == "Ja")})
 
@@ -57,7 +57,7 @@ any(duplicated(df_father$id_merge))
 any(duplicated(df_mother$id_merge))
 # Check if all in order
 if(!all(diff(match(df_father$id_merge, df_mother$id_merge)) == 1)) stop("Difference in order of rows between mother and father")
-
+#which((diff(match(df_father$id_merge, df_mother$id_merge)) == 1))
 df_mother$R_f <- df_father$R
 df_mother$R_m_f_check <- df_father$R_m_f
 

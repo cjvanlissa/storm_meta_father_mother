@@ -3,7 +3,7 @@ library(robumeta)
 library(clubSandwich)
 library(metafor)
 df_main <- read.csv("data_cleaned_mods.csv")
-which_mod <- "age_group"
+which_mod <- "p_cluster"
 
 #TEST
 

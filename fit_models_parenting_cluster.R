@@ -1,6 +1,5 @@
 library(metaSEM)
-load("p_2clusterpooled.RData")
-#or load("p_clusterpooled.RData")
+load("p_clusterpooled.RData")
 
 # Name the subgroups list
 #names(subgroups) <- gsub("[- ]", "", names(subgroups))
