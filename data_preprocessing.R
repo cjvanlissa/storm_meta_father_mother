@@ -47,6 +47,7 @@ single_ids <- colnames(tmp)[apply(tmp, 2, sum) == 1]
 
 df$id_merge[df$id_merge %in% single_ids] <- gsub("(warmth|F-F|F-|father-|M-M|M-|mother-)", "", df$id_merge[df$id_merge %in% single_ids])
 df$id_merge[df$id_merge %in% single_ids] <- gsub("_.{0,4}?$", "", df$id_merge[df$id_merge %in% single_ids], perl = TRUE)
+df$id_merge <- gsub("^(24_girls__PBgiving_LAB_1-2_).{2}", "\\1", df$id_merge)
 
 # Merge data --------------------------------------------------------------
 
@@ -56,6 +57,7 @@ df_father <- df[df$ID_P == "father", ]
 # Check if all unique
 any(duplicated(df_father$id_merge))
 any(duplicated(df_mother$id_merge))
+
 # Check if all in order
 if(!all(diff(match(df_father$id_merge, df_mother$id_merge)) == 1)) stop("Difference in order of rows between mother and father")
 #which((diff(match(df_father$id_merge, df_mother$id_merge)) == 1))
