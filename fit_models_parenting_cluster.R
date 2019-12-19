@@ -80,7 +80,7 @@ fit_multigroup_constraints <- mxRun(mx_multigroup_constraints, intervals = TRUE)
 
 results <- table_results(fit_multigroup_constraints, all = TRUE)[c("label", "est_sig", "se", "pvalue", "confint")]
 results
-
+write.csv(results, "results.csv", row.names = FALSE)
 
 # Make graph --------------------------------------------------------------
 
