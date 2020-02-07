@@ -107,4 +107,4 @@ edges(prep)[7:9, c("arrow", "connector", "connect_from", "connect_to", "curvatur
 p <- plot(prep)
 p
 
-ggsave("figure.png", p, width = 10, height = 2)
+ggsave("figure_parenting.png", p, width = 10, height = 2)
