@@ -74,7 +74,7 @@ lay <- get_layout("M", "",
                   "F", "", rows = 3)
 nodes <- data.frame(name = rep(c("A", "M", "F"), 3),
                     label = rep(c("Child", "Mother", "Father"), 3),
-                    group = rep(c("Young", "Old"), each = 2))
+                    group = rep(c("Young", "Old"), each = 3))
 
 edges <- results[grepl("^[AF]", results$label), c("label", "est_sig")]
 edges$from <- gsub("^.(on|with)(\\w).*$", "\\2", edges$label)

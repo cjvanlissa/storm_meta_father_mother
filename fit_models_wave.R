@@ -48,13 +48,14 @@ mx_multigroup <- do.call(mxModel, args)
 fit_multigroup <- mxRun(mx_multigroup, intervals = TRUE)
 summary(fit_multigroup)
 
-# Create multigroup model
-#Ik weet niet of dit wel klopt.
 Args <- c(list(model = "multigroup_model"), subgroup_fits, 
           list(
             mxFitFunctionMultigroup(names(subgroups)),
-            mxAlgebra(AonM-AonF, name = "D_parenting"),
-            mxCI(c("D_parenting"))))
+            mxAlgebra(AonMYYes-AonFYes, name = "D_concurrent"),
+            mxAlgebra(AonMNo-AonFNo, name = "D_predictive"),
+            mxAlgebra(AonMYes-AonMNo, name = "D_Mcon_pred"),
+            mxAlgebra(AonFYes-AonFNo, name = "D_Fcon_pred"),
+            mxCI(c("D_concurrent", "D_predictive", "D_Mcon_pred", "D_Fcon_pred"))))
 mx_multigroup_constraints <- do.call(mxModel, Args)
 
 # Estimate multigroup model
@@ -65,12 +66,13 @@ results
 write.csv(results, "results.csv", row.names = FALSE)
 
 # Make graph --------------------------------------------------------------
-# Ik weet niet of dit wel klopt, zo zonder groepen. 
+# Ik weet niet wat de nummers betekenen, dus waarschijnlijk klopt het nog niet helemaal.
 lay <- get_layout("M", "",
                   "", "A",
                   "F", "", rows = 3)
 nodes <- data.frame(name = rep(c("A", "M", "F"), 3),
-                    label = rep(c("Child", "Mother", "Father"), 3))
+                    label = rep(c("Child", "Mother", "Father"), 3),
+                    group = rep(c("Yes", "No"), each = 3))
 
 edges <- results[grepl("^[AF]", results$label), c("label", "est_sig")]
 edges$from <- gsub("^.(on|with)(\\w).*$", "\\2", edges$label)
@@ -88,4 +90,4 @@ edges(prep)[7:9, c("arrow", "connector", "connect_from", "connect_to", "curvatur
 p <- plot(prep)
 p
 
-ggsave("figure.png", p, width = 10, height = 2)
+ggsave("figure_wave.png", p, width = 10, height = 2)
