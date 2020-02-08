@@ -1,9 +1,5 @@
 library(metaSEM)
-if(!require("tidySEM")){
-  devtools::install_github("cjvanlissa/tidySEM")
-}
 library(tidySEM)
-library(ggplot2)
 
 load("p_clusterpooled.RData")
 
@@ -78,18 +74,17 @@ mx_multigroup_constraints <- do.call(mxModel, Args)
 # Estimate multigroup model
 fit_multigroup_constraints <- mxRun(mx_multigroup_constraints, intervals = TRUE)
 
-results <- table_results(fit_multigroup_constraints, all = TRUE)[c("label", "est_sig", "se", "pvalue", "confint")]
+results <- table_results(fit_multigroup_constraints, columns = NULL)[c("label", "est_sig", "se", "pvalue", "confint")]
 results
-write.csv(results, "results.csv", row.names = FALSE)
+write.csv(results, "results_pcluster.csv", row.names = FALSE)
 
 # Make graph --------------------------------------------------------------
 
 lay <- get_layout("M", "",
                   "", "A",
                   "F", "", rows = 3)
-nodes <- data.frame(name = rep(c("A", "M", "F"), 3),
-                    label = rep(c("Child", "Mother", "Father"), 3),
-                    group = rep(c("control", "negative", "positive"), each = 3))
+nodes <- data.frame(name = c("A", "M", "F"),
+                    label = c("Child", "Mother", "Father"))
 
 edges <- results[grepl("^[AF]", results$label), c("label", "est_sig")]
 edges$from <- gsub("^.(on|with)(\\w).*$", "\\2", edges$label)
@@ -98,13 +93,10 @@ edges$group <- gsub("^.+(control|negative|positive)$", "\\1", edges$label)
 edges$label <- edges$est_sig
 edges$est_sig <- NULL
 
-
-prep <- prepare_graph(edges, lay, nodes, angle = 0)
-edges(prep)$connect_from <- "right"
-edges(prep)$connect_to <- "left"
-edges(prep)[7:9, c("arrow", "connector", "connect_from", "connect_to", "curvature")] <- rep(c("none", "curve", "left", "left", .1), each = 3)
+prep <- tidySEM::prepare_graph(edges = edges, nodes = nodes, layout = lay)
+edges(prep)$arrow[seq(3, nrow(edges(prep)), by = 3)] <- "none"
+edges(prep)$linetype <- rep(c(1,1,2), nrow(edges(prep))/3)
 
 p <- plot(prep)
-p
 
-ggsave("figure_parenting.png", p, width = 10, height = 2)
+ggsave("figure_pcluster.png", p, width = 10, height = 2)
