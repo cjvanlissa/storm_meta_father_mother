@@ -24,6 +24,8 @@ df <- df[!missing == max(missing), ]
 # Drop missing ID_P
 df <- df[!is.na(df$ID_P), ]
 
+
+
 run_length <- rle(as.vector(df$ID_P))
 all(run_length$lengths[seq(1, length(run_length$lengths), by = 2)]== run_length$lengths[seq(2, length(run_length$lengths), by = 2)])
 
@@ -53,6 +55,14 @@ df$id_merge <- gsub("^(24_girls__PBgiving_LAB_1-2_).{2}", "\\1", df$id_merge)
 
 df_mother <- df[df$ID_P == "mother", ]
 df_father <- df[df$ID_P == "father", ]
+
+# Check number of effect sizes
+#rowSums(!table(is.na(df_mother$R), df_mother$ID) == 0)
+#rowSums(!table(is.na(df_father$R), df_father$ID) == 0)
+#rowSums(!table(is.na(df_father$R_m_f), df_father$ID) == 0)
+#rowSums(!table(is.na(df_mother$R_m_f), df_mother$ID) == 0)
+#rowSums(!table(is.na(df$R_m_f), df$ID) == 0)
+#rowSums(!table(is.na(df$R), df$ID) == 0)
 
 # Check if all unique
 any(duplicated(df_father$id_merge))
