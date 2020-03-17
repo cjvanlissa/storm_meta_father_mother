@@ -1,5 +1,7 @@
 library(metaSEM)
 library(tidySEM)
+source("pool_correlation_matrices_robust_se.R")
+pool_correlation_matrices("age_group")
 load("age_grouppooled.RData")
 
 # Name the subgroups list
@@ -65,7 +67,14 @@ mx_multigroup_constraints <- do.call(mxModel, Args)
 fit_multigroup_constraints <- mxRun(mx_multigroup_constraints, intervals = TRUE)
 
 results <- table_results(fit_multigroup_constraints, columns = NULL)[c("label", "est_sig", "se", "pvalue", "confint")]
-results
+
+
+replace_these <- is.na(results$se)
+ses <- results$se[replace_these] <- sapply(results$label[replace_these], mxSE, model = fit_multigroup_constraints)
+
+results$pvalue[replace_these] <- 2*pnorm(abs(as.numeric(results$est_sig[replace_these])/ses), lower.tail=FALSE)
+results$est_sig[replace_these] <- tidySEM::est_sig(results$est_sig[replace_these], sig = results$pvalue[replace_these])
+
 write.csv(results, "results_age.csv", row.names = FALSE)
 
 # Make graph --------------------------------------------------------------

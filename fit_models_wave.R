@@ -1,5 +1,7 @@
 library(metaSEM)
 library(tidySEM)
+source("pool_correlation_matrices_robust_se.R")
+pool_correlation_matrices("same_wave")
 load("same_wavepooled.RData")
 
 # Name the subgroups list
@@ -56,14 +58,20 @@ Args <- c(list(model = "multigroup_model"), subgroup_fits,
             mxAlgebra(AonMNo-AonFNo, name = "D_predictive"),
             mxAlgebra(AonMYes-AonMNo, name = "D_Mcon_pred"),
             mxAlgebra(AonFYes-AonFNo, name = "D_Fcon_pred"),
-            mxCI(c("D_concurrent", "D_predictive", "D_Mcon_pred", "D_Fcon_pred"))))
+            mxCI(c("D_concurrent", "D_predictive", "D_Mcon_pred", "D_Fcon_pred"))
+            ))
 mx_multigroup_constraints <- do.call(mxModel, Args)
 
 # Estimate multigroup model
 fit_multigroup_constraints <- mxRun(mx_multigroup_constraints, intervals = TRUE)
 
 results <- table_results(fit_multigroup_constraints, columns = NULL)[c("label", "est_sig", "se", "pvalue", "confint")]
-results
+replace_these <- is.na(results$se)
+ses <- results$se[replace_these] <- sapply(results$label[replace_these], mxSE, model = fit_multigroup_constraints)
+
+results$pvalue[replace_these] <- 2*pnorm(abs(as.numeric(results$est_sig[replace_these])/ses), lower.tail=FALSE)
+results$est_sig[replace_these] <- tidySEM::est_sig(results$est_sig[replace_these], sig = results$pvalue[replace_these])
+
 write.csv(results, "results_wave.csv", row.names = FALSE)
 
 # Make graph --------------------------------------------------------------

@@ -1,5 +1,7 @@
 library(metaSEM)
 library(tidySEM)
+source("pool_correlation_matrices_robust_se.R")
+pool_correlation_matrices()
 load("Overallpooled.RData")
 # Name the subgroups list
 #names(subgroups) <- gsub("[- ]", "", names(subgroups))
@@ -27,7 +29,7 @@ subgroup_fits <- lapply(names(subgroups), function(this_subgroup) {
   wls_model <- wls(
     Cov,
     aCov,
-    N_min,
+    total_N,
     Amatrix = RAM1$A,
     Smatrix = RAM1$S,
     intervals = "LB",
@@ -46,7 +48,7 @@ fit_multigroup <- mxRun(mx_multigroup, intervals = TRUE)
 summary(fit_multigroup)
 
 # Create multigroup model
-#Ik weet niet of dit wel klopt.
+
 Args <- c(list(model = "multigroup_model"), subgroup_fits, 
           list(
             mxFitFunctionMultigroup(names(subgroups)),
@@ -58,7 +60,13 @@ mx_multigroup_constraints <- do.call(mxModel, Args)
 fit_multigroup_constraints <- mxRun(mx_multigroup_constraints, intervals = TRUE)
 
 results <- table_results(fit_multigroup_constraints, columns = NULL)[c("label", "est_sig", "se", "pvalue", "confint")]
-results
+
+replace_these <- is.na(results$se)
+ses <- results$se[replace_these] <- sapply(results$label[replace_these], mxSE, model = fit_multigroup_constraints)
+
+results$pvalue[replace_these] <- 2*pnorm(abs(as.numeric(results$est_sig[replace_these])/ses), lower.tail=FALSE)
+results$est_sig[replace_these] <- tidySEM::est_sig(results$est_sig[replace_these], sig = results$pvalue[replace_these])
+
 write.csv(results, "results_overall.csv", row.names = FALSE)
 
 # Make graph --------------------------------------------------------------
