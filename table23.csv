@@ -1,0 +1,11 @@
+Moderator,Level,k,#ESm_a,#ESm_f,#ESf_a,N
+Overall,Main,33,186,129,187,1040
+same_wave,No,16,108,76,108,579
+same_wave,Yes,23,78,53,79,745
+same_wave,No,16,108,76,108,579
+same_wave,Yes,23,78,53,79,745
+p_cluster,control,17,45,38,45,568
+p_cluster,negative,9,24,22,24,174
+p_cluster,positive,27,113,66,114,835
+"age_group","Old","18","110","62","111","508"
+"age_group","Young","17","74","65","74","634"
