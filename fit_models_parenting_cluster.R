@@ -65,11 +65,11 @@ Args <- c(list(model = "multigroup_model"), subgroup_fits,
             mxAlgebra(AonMpositive-AonFpositive, name = "D_positive"),
             mxAlgebra(AonMcontrol-AonMnegative, name = "D_Mcontrolnegative"),
             mxAlgebra(AonMcontrol-AonMpositive, name = "D_Mcontrolpositive"),
-            mxAlgebra(AonMnegative-AonMpositive, name = "D_Mcontrolpositive"),
+            mxAlgebra(AonMnegative-AonMpositive, name = "D_Mnegativepositive"),
             mxAlgebra(AonFcontrol-AonFnegative, name = "D_Fcontrolnegative"),
             mxAlgebra(AonFcontrol-AonFpositive, name = "D_Fcontrolpositive"),
-            mxAlgebra(AonFnegative-AonFpositive, name = "D_Fcontrolpositive"),
-            mxCI(c("D_control", "D_negative", "D_positive", "D_Mcontrolnegative", "D_Mcontrolpositive",  "D_Mcontrolpositive", "D_Fcontrolnegative", "D_Fcontrolpositive",  "D_Fcontrolpositive"))
+            mxAlgebra(AonFnegative-AonFpositive, name = "D_Fnegativepositive"),
+            mxCI(c("D_control", "D_negative", "D_positive", "D_Mcontrolnegative", "D_Mcontrolpositive",  "D_Mnegativepositive", "D_Fcontrolnegative","D_Fcontrolpositive", "D_Fnegativepositive"))
             ))
 mx_multigroup_constraints <- do.call(mxModel, Args)
 
