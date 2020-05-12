@@ -61,6 +61,9 @@ if(run_everything){
   #pool_correlation_matrices("p_cluster")
   #pool_correlation_matrices("same_wave")
   source("fit_models.R")
+  source("fit_models_age_group.R")
+  source("fit_models_parenting_cluster.R")
+  source("fit_models_wave.R")
 } else {
   load("Overallpooled.RData")
 }
