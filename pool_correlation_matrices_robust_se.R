@@ -12,14 +12,14 @@ pool_correlation_matrices <- function(which_mod = NULL){
   }
   names(df_main)[grep("^R", names(df_main))] <- c("R_m_a", "R_m_f", "R_f_a")
   df_main$ID_sample <- gsub(" ", "", paste0(df_main$ID, df_main$ID_subgroup))
-  #table(df_main$ID_sample)
+  #length(table(df_main$ID_sample))
   
   # Select effect size data
   df_es_wide <-
     df_main[, c(
       "ID_sample",
-      grep("^N", names(df_main), value = TRUE),
-      grep("^R_\\w_\\w$", names(df_main), value = TRUE)
+      c("N", "N_m", "N_f"),
+      c("R_m_a", "R_m_f", "R_f_a")
     )]
   
   if(is.null(which_mod)){
@@ -106,5 +106,5 @@ pool_correlation_matrices <- function(which_mod = NULL){
   })
   # Name the subgroups list
   names(subgroups) <- levels(df_es_wide$moderator)
-  save(subgroups, file = paste0(which_mod, "pooled.RData"))
+  save(subgroups, file = paste0("pooled_", which_mod, ".RData"))
 }

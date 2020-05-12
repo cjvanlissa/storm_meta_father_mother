@@ -1,17 +1,20 @@
 ---
-title             : "Social reference results"
-shorttitle        : "SOCIAL REFERENCE"
+title             : "Results"
+shorttitle        : "Results"
 
 author: 
-  - name      : "Caspar J. van Lissa"
-affiliation   : "1"
-corresponding : yes    # Define only one corresponding author
-address       : "Padualaan 14, 3584CH Utrecht"
-email         : "c.j.vanlissa@uu.nl"
+  - name          : "Caspar J. van Lissa"
+    affiliation   : "1,2"
+    corresponding : yes    # Define only one corresponding author
+    address       : "Padualaan 14, 3584CH Utrecht, The Netherlands"
+    email         : "c.j.vanlissa@uu.nl"
 
 affiliation:
-  - id        : "1"
-institution   : "Utrecht University, dept. Methodology & Statistics"
+  - id            : "1"
+    institution   : "Utrecht University faculty of Social and Behavioral Sciences, department of Methodology & Statistics"
+  - id            : "2"
+    institution   : "Open Science Community Utrecht"
+
 
 authornote: |
 
@@ -36,7 +39,7 @@ output: papaja::apa6_docx
 ---
 
 ```{r setup, include = FALSE}
-run_everything <- FALSE
+run_everything <- TRUE
 
 library("papaja")
 if(!require(motley)){
@@ -48,8 +51,15 @@ library(metafor)
 library(metaSEM)
 
 if(run_everything){
+  if(file.exists("table23.csv")) file.remove("table23.csv")
   source("data_cleaning.R")
-  source("pool_correlation_matrices_robust_se.R")
+  source("data_preprocessing.R")
+  source("clean_moderators.R")
+  #source("pool_correlation_matrices_robust_se.R")
+  #pool_correlation_matrices()
+  #pool_correlation_matrices("age_group")
+  #pool_correlation_matrices("p_cluster")
+  #pool_correlation_matrices("same_wave")
   source("fit_models.R")
 } else {
   load("Overallpooled.RData")
@@ -64,9 +74,9 @@ knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 # source("data_wrangling_multigroup.R")
 # source("multigroup_model_constraints.R")
 load("subgroups.RData")
-load("results_multigroup.RData")
-load("par_tables.RData")
-load("metafor_t_test.RData")
+#load("results_multigroup.RData")
+#load("par_tables.RData")
+#load("metafor_t_test.RData")
 ```
 
 
@@ -119,176 +129,7 @@ reported as having the same N. However, sensitivity analyses indicated that
 there were no differences in results between these two estimates of N, at least
 to the third decimal. We used the lower bound estimate of N to err on the side
 of caution.-->
-The estimated total sample sizes were 
-$N = `r subgroups[["Cross-sectional"]][["N_min"]]`$ for the cross-sectional
-sample,
-$N = `r subgroups[["Teacher first"]][["N_min"]]`$ for the teacher-first 
-sample, and
-$N = `r subgroups[["Peer first"]][["N_min"]]`$ for the peer-first sample.
-
-## Establishing direction of effects
-
-To establish causality, three conditions must be met: Variables must be 
-correlated; one must precede the other in time, and all alternative explanations
-must be excluded. The former two of these conditions can be examined here.
-Moreover, by comparing coefficients of the cross-sectional model to those of the
-time-lagged models, we can gather additional support for the proposed direction
-of effects implied by our theoretical model.
-
-We estimated several models (see Table \@ref(tab:tabfitmetasem)). In Model 1, 
-we estimated the hypothesized structural
-model in all three groups, allowing all parameters to vary freely. In Model 2, 
-we 
-imposed constraints on the cross-sectional parameters in all three groups, 
-allowing only the time-lagged effects to vary freely. In Model 3, we constrained
-all
-parameters to be the same accross groups, to establish that there were indeed
-significant differences between the cross-sectional and time-lagged parameters.
-As the table illustrates, likelihood ratio tests indicated that, as expected, 
-the fit of Model
-2 was not significantly worse than that of Model 1, and the fit of Model 3 was
-significantly worse than that of Model 2. We conclude that some of the 
-time-lagged parameters differed significantly from the cross-sectional 
-parameters, and proceed with analyses using Model 2. Figure 
-\@ref(fig:figmultigroup) illustrates the model coefficients by group.
-
-```{r figmultigroup, out.width = "100%", fig.cap="Model coefficients by group. c = constrained parameter."}
-knitr::include_graphics("sem_plot.png")
-```
-
-<!--that should be identical between groups: For
-example, in the teacher-first sample, behavioral problems and teacher-student
-relationships were both measured at time 1. The relationship between them should
-therefore be the same as in the cross-sectional sample/-->
-
-```{r tabfitmetasem, results = "asis"}
-tab_fit$base <- c("1. Free model", "2. Constrain cross-sectional", "3. Constrain all")
-names(tab_fit) <- c("Model", "Parameters", "-2LL", "$\\Delta$-2LL", "p")
-apa_table(tab_fit, caption = 
-"Model fit table", note = "p-values indicate significance of likelihood ratio tests, comparing each model to the one above.", escape = FALSE)
-write.csv(tab_fit, "table_fit_metasem.csv", row.names = FALSE)
-```
-
-## Results
-
-### Mediation model
-
-We found evidence for the hypothesized significant effect of
-behavior on peer relationship quality, and the size of this direct effect 
-did not differ across the three samples. Similarly, we found a significant
-effect of behavior on teacher-student relationship quality, 
-and the size of this direct effect 
-did not differ across samples. We also found a significant effect of
-teacher-student relationship quality on peer relationship quality in all three 
-samples. Finally, we found the hypothesized indirect effect from 
-behavior, 
-through teacher-student relationship quality, to peer relationship quality. This
-indirect effect was significant in all three samples. Our findings thus suggest
-that the effect of behavior on peer relationships might be partially mediated
-by its effect on teacher-student relationships.
-
-### Direction of effect
-
-Although the indirect effect was significantly larger in the cross-sectional
-sample than in
-the two time-lagged samples, but did not differ significantly between 
-the peer-first and teacher-first samples. Thus, the hypothesized 
-mediation model was supported in all three samples, but there were no 
-differences between the two time-lagged samples that might support the 
-hypothesized direction of effects.
-
-### Effect of behavior on teacher-student and peer relationships
-
-To address the question whether behavior similarly affects teacher-student and
-peer relationships, we computed a confidence interval for the difference between
-the effect of behavior on teacher-student relationships, and the total effect of
-behavior on peer relationships (direct and indirect effect taken together). In 
-the cross-sectional sample, but not in the two time-lagged samples, there was a
-significant but small difference, favoring the effect on peer relatioships. 
-Thus, behavior seems to affect peer and teacher-student relationships similarly,
-with slight evidence that the effect on peer relationships is stronger.
-
-
-```{r tabresults_tf, results = "asis"}
-par_table_tf[is.na(par_table_tf)] <- ""
-rownames(par_table_tf) <- NULL
-apa_table(par_table_tf, caption = 
-            "Model results for cross-sectional (cs) and teacher first (tf) samples", note = "*: CI does not include zero. Result is significant with p < .05", escape = TRUE)
-write.csv(par_table_tf, "table_param_tf.csv", row.names = FALSE)
-```
-
-
-```{r tabresults_pf, results = "asis"}
-par_table_pf[is.na(par_table_pf)] <- ""
-rownames(par_table_pf) <- NULL
-apa_table(par_table_pf, caption = 
-            "Model results for cross-sectional (cs) and\npeer first (pf) samples", 
-          note = "*: CI does not include zero. Result is significant with p < .05", escape = TRUE)
-write.csv(par_table_pf, "table_param_pf.csv", row.names = FALSE)
-```
-
-```{r tabresults_pf_tf, results = "asis"}
-par_table_pf_tf[is.na(par_table_pf_tf)] <- ""
-rownames(par_table_pf_tf) <- NULL
-apa_table(par_table_pf_tf, caption = 
-            "Model results for peer first (pf) and\nteacher first (tf) samples", 
-          note = "*: CI does not include zero. Result is significant with p < .05", escape = TRUE)
-write.csv(par_table_pf_tf, "table_param_pf_tf.csv", row.names = FALSE)
-t_test_results <- t_test_coef(model.full, 1, 2)
-```
-
-
-
-## Is the association between teacher-student and peer relationships stronger for classmate perceptions?
-
-To determine whether the association between teacher-student and 
-peer relationship quality was stronger for classmate-reported teacher-student 
-relationships, we used meta-regression, with the correlation between 
-teacher-student and peer relationship quality as the dependent variable, and a
-binary moderator that indicated whether teacher-student relationship quality was
-peer-reported, or self-reported. To account for the multilevel structure of the
-data, we used a three-level meta-analysis; a somewhat more elegant solution than
-the robust variance estimation used for the metaSEM models, which also allows us
-to quantify the amount of heterogeneity at the within-study and 
-between-studies levels [@vandennoortgateMetaanalysisMultipleOutcomes2015]. It 
-should be noted that, like a t-test, this analysis assumes that the residual
-heterogeneity is homogenous for peer-reported and self-reported effect sizes.
-
-Our analysis indicated that the correlation between teacher-student and 
-peer relationship quality was stronger for classmate-reported teacher-student 
-relationships, $\bar{r} `r report(model.full[["b"]][1])`$, 95% CI 
-$[`r report(model.full[["ci.lb"]][1], equals = F)`, 
-`r report(model.full[["ci.ub"]][1], equals = F)`]$, than for self-reported
-teacher-student relationship quality,
-$\bar{r} `r report(model.full[["b"]][2])`$, 95% CI 
-$[`r report(model.full[["ci.lb"]][2], equals = F)`, 
-`r report(model.full[["ci.ub"]][2], equals = F)`]$. A t-test of the model 
-parameters indicated that this difference was significant,
-$t(`r t_test_results[["df"]]`) = `r formatC(t_test_results[["t"]], digits = 2, format = "f")`, p `r report(t_test_results[["p"]])`$.
-
-As indicated in Table \@ref(tab:variancetable),
-the within-study variance component of this analysis differed 
-significantly from zero, $\sigma^2_w `r report(model.full[["sigma2"]][1])`$, 
-95% CI [`r report(confints[[1]][["random"]][1,2], equals = F)`, 
-`r report(confints[[1]][["random"]][1,3], equals = F)`]. 
-The between-studies variance component was also significant, and substantially 
-larger than the within-studies variance component;
-$\sigma^2_b `r report(model.full[["sigma2"]][2])`$, 
-95% CI [`r report(confints[[2]][["random"]][1,2], equals = F)`,
-`r report(confints[[2]][["random"]][1,3], equals = F)`]. 
-Thus, the variation in observed effect sizes was primarily due to differences
-between studies. 
-
-
-
-```{r variancetable, results = "asis"}
-apa_table(aov_table, caption = 
-            "Comparing the fit of different multi-level models")
-write.csv(aov_table, "table_multilevel_fit.csv", row.names = FALSE)
-```
-
-<!--See Table \@ref(tab:tabresults_tf)-->
-
+The estimated total sample size was ....
 
 
 

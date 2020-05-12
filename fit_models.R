@@ -1,8 +1,10 @@
 library(metaSEM)
 library(tidySEM)
+library(ggplot2)
+library(tidySEM)
 source("pool_correlation_matrices_robust_se.R")
 pool_correlation_matrices()
-load("Overallpooled.RData")
+load("pooled_overall.RData")
 # Name the subgroups list
 #names(subgroups) <- gsub("[- ]", "", names(subgroups))
 
@@ -83,7 +85,7 @@ edges$to <- gsub("^(.)(on|with)(\\w).*$", "\\1", edges$label)
 #edges$group <- gsub("^.+(control|negative|positive)$", "\\1", edges$label)
 edges$label <- edges$est_sig
 edges$est_sig <- NULL
-tidySEM::graph(edges = edges, nodes = nodes, layout = lay)
+tidySEM::graph_sem(edges = edges, nodes = nodes, layout = lay)
 prep <- tidySEM::prepare_graph(edges = edges, nodes = nodes, layout = lay)
 #edges(prep)$connect_from <- "right"
 #edges(prep)$connect_to <- "left"

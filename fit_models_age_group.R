@@ -1,8 +1,9 @@
 library(metaSEM)
 library(tidySEM)
+library(ggplot2)
 source("pool_correlation_matrices_robust_se.R")
 pool_correlation_matrices("age_group")
-load("age_grouppooled.RData")
+load("pooled_age_group.RData")
 
 # Name the subgroups list
 #names(subgroups) <- gsub("[- ]", "", names(subgroups))
