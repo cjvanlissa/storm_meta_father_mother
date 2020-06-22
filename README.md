@@ -1,17 +1,8 @@
 # Readme <a href='https://osf.io/zcvbs/'><img src='worcs_badge.png' align="right" height="139" /></a>
 
-
-
-
-
-
 [![WORCS](https://img.shields.io/badge/WORCS-open%20science-brightgreen)](https://osf.io/zcvbs/)
 
-
-
-
-
-This repository contains the data and source code for the manuscript *"A meta-analysis structural equation model of Mothers’ and Fathers’ unique contributions Parenting Behavior in Association to Children’s Prosocial Behavior: A Meta-Analysis"*, by Van der Storm, Van Lissa, Lucassen, Helmerhorst, and Keizer.
+This repository contains the data and source code for the manuscript *"A meta-analysis structural equation model of Mothers’ and Fathers’ unique contributions Parenting Behavior in Association to Children’s Prosocial Behavior: A Meta-Analysis"*, by Van der Storm, Van Lissa, Lucassen, Helmerhorst, and Keizer, [DOI:10.17605/OSF.IO/MHX8E](https://osf.io/MHX8E).
 
 ## Where do I start?
 
