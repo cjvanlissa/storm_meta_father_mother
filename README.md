@@ -1,10 +1,21 @@
 # Readme <a href='https://osf.io/zcvbs/'><img src='worcs_badge.png' align="right" height="139" /></a>
 
-<!-- Please add a brief introduction to explain what the project is about    -->
+
+
+
+
+
+[![WORCS](https://img.shields.io/badge/WORCS-open%20science-brightgreen)](https://osf.io/zcvbs/)
+
+
+
+
+
+This repository contains the data and source code for the manuscript *"A meta-analysis structural equation model of Mothers’ and Fathers’ unique contributions Parenting Behavior in Association to Children’s Prosocial Behavior: A Meta-Analysis"*, by Van der Storm, Van Lissa, Lucassen, Helmerhorst, and Keizer.
 
 ## Where do I start?
 
-You can load this project in Rstudio by opening the file called 
+You can load this project in Rstudio by opening the file called storm.Rproj
 
 ## Project structure
 

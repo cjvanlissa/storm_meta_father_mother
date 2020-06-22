@@ -1,0 +1,102 @@
+"name","type","missing","unique","mean","median","mode","mode_value","sd","v","min","max","range","skew","skew_2se","kurt","kurt_2se","category","description"
+"ID","numeric",0.00158982511923688,77,31.2484076433121,36,36,NA,31.2484076433121,NA,1,80,79,0.35201947297696,1.80498935180318,-0.461731606457549,-1.18563315278722,NA,NA
+"NR","numeric",0.00158982511923688,81,31.531847133758,36,36,NA,31.531847133758,NA,1,80,79,0.309162196735119,1.58523751077684,-0.526909261933641,-1.35299615777246,NA,NA
+"Eligible","factor",0.00158982511923688,3,NA,NA,377,"yes",NA,0.490917481439409,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Exclude_reason","character",0,50,NA,NA,221,"                                                                                                                                                                                                                                                               ",NA,0.809188127620747,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"ID_P","factor",0.0667726550079491,2,NA,NA,294,"mother",NA,0.499998548911829,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"ID_subgroup","character",0,9,NA,NA,351,"                                                                                                    ",NA,0.648598097770454,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"ID_iv","character",0,62,NA,NA,146,"warmth                                                                                              ",NA,0.923766748137832,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"ID_dv","character",0,38,NA,NA,124,"PB to fam                                                                                           ",NA,0.918479126278621,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"ID_report","character",0,48,NA,NA,249,"                                                                                                    ",NA,0.79638864526174,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"ID_Wave","character",0,23,NA,NA,102,"                                                                                                    ",NA,0.921026890539656,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Authors","character",0,81,NA,NA,72,"Padilla-Walker, L. M., & Son, D.                                                                                                                                                                                                                               ",NA,0.950462666912681,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"AUTHO0","character",0,6,NA,NA,608,"                                                                                                                                                                                                                                                               ",NA,0.065195467608261,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"AUTHO1","character",0,2,NA,NA,628,"                                                                                                                                                                                                                                                               ",NA,0.00317459515065432,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Pub_Year","numeric",0.00158982511923688,29,2012.1847133758,2016,2016,NA,2012.1847133758,NA,1980,2019,39,-2.05541558479934,-10.539198904874,3.48936719301778,8.95998750882633,NA,NA
+"Title","character",0,74,NA,NA,72,"Longitudinal associations among routine disclosure, the parent–child relationship, and adolescents’ prosocial and delinquent behaviors                                                                                                                     ",NA,0.950174526906969,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Journal","character",0,44,NA,NA,86,"Journal of Family Psychology                                                                                                                                                                                                                                   ",NA,0.930393968269214,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Doi","character",0,55,NA,NA,88,"                                                                                                                                                                                                                                                               ",NA,0.932623261997619,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Pub_type","factor",0.068362480127186,2,NA,NA,580,"journal article",NA,0.0202681452317441,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Design","factor",0.0588235294117647,2,NA,NA,305,"cross",NA,0.499537755661066,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Waves","numeric",0.106518282988871,4,1.41992882562278,1,1,NA,1.41992882562278,NA,0,2,2,-0.413297428969983,-2.00530265683428,-0.725798318999229,-1.76386358072442,NA,NA
+"Age_measure","factor",0.114467408585056,2,NA,NA,518,"Years",NA,0.130230879068103,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Age_m_iv","numeric",0.216216216216216,41,13.3242596348884,12.34,12.34,NA,13.3242596348884,NA,3,54,51,2.83422451128332,12.8845031649441,11.0904588400071,25.259202298575,NA,NA
+"Age_sd_iv","numeric",0.461049284578696,26,1.20218289085546,1.06,1.06,NA,1.20218289085546,NA,-0.3,3.6,3.9,1.331025620294,5.02446768017757,2.29191615537805,4.33833838511021,NA,NA
+"Age_m_dv","numeric",0.186009538950715,42,14.5861328125,13.32,13.32,NA,14.5861328125,NA,3,81.86,78.86,3.64366346432627,16.8785288974595,16.3878105748218,38.029647812168,NA,NA
+"Age_sd_dv","numeric",0.645468998410175,21,1.37286995515695,1.05,1.05,NA,1.37286995515695,NA,-0.3,3.6,3.9,1.03502541830822,3.17607567311963,0.995428073091892,1.53390330219843,NA,NA
+"male","numeric",0.0635930047694754,31,46.3949881154499,50,50,NA,46.3949881154499,NA,0,100,100,-0.381325110031267,-1.89386659048007,2.16946109309607,5.396388528882,NA,NA
+"N","numeric",0.0620031796502385,45,465.005084745763,462,462,NA,465.005084745763,NA,30,4007,3977,4.55020397709267,22.6178511591381,34.2564510616509,85.2823176876998,NA,NA
+"N_m","numeric",0.767885532591415,20,461.178082191781,235,235,NA,461.178082191781,NA,16,1275,1259,0.888024693079254,2.21254463134711,-1.09792187007066,-1.3766459520588,NA,NA
+"N_f","numeric",0.767885532591415,20,354.650684931507,182,182,NA,354.650684931507,NA,14,1046,1032,1.08826192779942,2.71144271619614,-0.570433330523673,-0.715246464062418,NA,NA
+"SES","character",0,37,NA,NA,144,"999                                                                                                                                                                                                                                                            ",NA,0.912893254238059,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"SES0","character",0,3,NA,NA,623,"                                                ",NA,0.0189363589718963,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Country","character",0,20,NA,NA,287,"US                                                                                                                                                                                                                                                             ",NA,0.766786050990671,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_Instrument","character",0,47,NA,NA,78,"Parenting Styles and Dimensions Questionnaire Short version (PSDQ) (Robinson, Mandleco, Olsen, & Hart, 2001)                                                                                                                                                   ",NA,0.944462277670919,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_INS0","character",0,2,NA,NA,625,"                                                ",NA,0.0126377195487828,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_OBS","factor",0.0604133545310016,2,NA,NA,542,"Nee",NA,0.152072400159184,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_PR","factor",0.0604133545310016,2,NA,NA,320,"Nee",NA,0.496562939295295,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_SPR","factor",0.0651828298887122,2,NA,NA,582,"Nee",NA,0.0201999167013744,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_CR","factor",0.0604133545310016,2,NA,NA,332,"Nee",NA,0.492371471680395,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_MIX","factor",0.0667726550079491,2,NA,NA,581,"Nee",NA,0.0202339734566952,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_Inv","factor",0.0842607313195548,2,NA,NA,547,"Nee",NA,0.0956247588734567,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_pos","factor",0.0842607313195548,2,NA,NA,567,"Nee",NA,0.03076171875,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_Neg","factor",0.0842607313195548,2,NA,NA,557,"Nee",NA,0.0637960551697532,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_Inc","factor",0.0874403815580286,2,NA,NA,570,"Nee",NA,0.0138401583119865,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_War","factor",0.0842607313195548,2,NA,NA,406,"Nee",NA,0.416063850308642,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_Acc","factor",0.0842607313195548,2,NA,NA,558,"Nee",NA,0.060546875,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_Sen","factor",0.0858505564387917,2,NA,NA,539,"Nee",NA,0.117377693761815,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_Sup","factor",0.0858505564387917,2,NA,NA,555,"Nee",NA,0.0671455576559548,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_Mon_poor","factor",0.0858505564387917,2,NA,NA,573,"Nee",NA,0.006932325141777,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_Mon","factor",0.0842607313195548,2,NA,NA,566,"Nee",NA,0.0341194058641976,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_dir","factor",0.0651828298887122,2,NA,NA,584,"Nee",NA,0.0135128881484567,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_Dem","factor",0.0858505564387917,2,NA,NA,569,"Nee",NA,0.0206517958412098,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_Aut","factor",0.0858505564387917,2,NA,NA,525,"Nee",NA,0.158790170132325,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_prot","factor",0.0890302066772655,2,NA,NA,569,"Nee",NA,0.0138641423693917,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_Con","factor",0.0858505564387917,2,NA,NA,571,"Nee",NA,0.0138162570888469,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_Str_Con","factor",0.0858505564387917,2,NA,NA,549,"Nee",NA,0.0863455576559546,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_B_Con","factor",0.0842607313195548,2,NA,NA,538,"Nee",NA,0.123239776234568,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_P_Con","factor",0.0842607313195548,2,NA,NA,546,"Nee",NA,0.0987413194444444,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_Pun","factor",0.0858505564387917,2,NA,NA,571,"Nee",NA,0.0138162570888469,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_Dis_indu","factor",0.0890302066772655,2,NA,NA,561,"Nee",NA,0.0410076478166717,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_Dis","factor",0.0842607313195548,2,NA,NA,572,"Nee",NA,0.0137924382716048,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_C_Dis","factor",0.0842607313195548,2,NA,NA,570,"Nee",NA,0.0206163194444444,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_I_Dis","factor",0.0842607313195548,2,NA,NA,566,"Nee",NA,0.0341194058641976,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_Hos","factor",0.0842607313195548,2,NA,NA,544,"Nee",NA,0.104938271604938,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_cor_pun","factor",0.0842607313195548,2,NA,NA,574,"Nee",NA,0.00692033179012341,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_har","factor",0.0842607313195548,2,NA,NA,558,"Nee",NA,0.060546875,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_Rej","factor",0.580286168521463,2,NA,NA,254,"Nee",NA,0.0728879706152432,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"PB_instrument","character",0,40,NA,NA,90,"Kindness and Generosity subscale of Values in Action Inventory of Strengths (Peterson & Seligman, 2004).                                                                                       ",NA,0.939750935823133,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"PB_OBS","factor",0.0604133545310016,2,NA,NA,537,"Nee",NA,0.166043958875519,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"PB_PR","factor",0.0604133545310016,2,NA,NA,456,"Nee",NA,0.352495555154732,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"PB_PR_WHOM","factor",0.400635930047695,3,NA,NA,295,"0",NA,0.348725453637189,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"PB_CR","factor",0.0604133545310016,2,NA,NA,298,"Ja",NA,0.499964212195911,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"PB_TR","factor",0.0604133545310016,2,NA,NA,525,"Nee",NA,0.198407585869257,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"PB_FR","factor",0.0604133545310016,2,NA,NA,579,"Nee",NA,0.0397845860496275,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"PB_MIX","factor",0.0667726550079491,2,NA,NA,549,"Nee",NA,0.121090405695231,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"PB_PB","factor",0.0667726550079491,2,NA,NA,308,"Nee",NA,0.498779634848173,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"PB_toM","factor",0.0667726550079491,2,NA,NA,569,"Nee",NA,0.0594481801903248,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"PB_toF","factor",0.0667726550079491,2,NA,NA,569,"Nee",NA,0.0594481801903248,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"PB_toFR","factor",0.0667726550079491,2,NA,NA,571,"Nee",NA,0.0530285661217347,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"PB_toFAM","factor",0.0667726550079491,2,NA,NA,462,"Nee",NA,0.335201367505492,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"PB_toSTR","factor",0.0667726550079491,2,NA,NA,541,"Nee",NA,0.14444712089596,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"PB_Alt","factor",0.0667726550079491,2,NA,NA,581,"Nee",NA,0.0202339734566952,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"PB_Emp","factor",0.0667726550079491,2,NA,NA,571,"Nee",NA,0.0530285661217347,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"PB_Sym","factor",0.0667726550079491,2,NA,NA,561,"Nee",NA,0.0846622882499588,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"PB_com","factor",0.0667726550079491,2,NA,NA,571,"Nee",NA,0.0530285661217347,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"PB_coop","factor",0.0667726550079491,2,NA,NA,571,"Nee",NA,0.0530285661217347,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"PB_sha","factor",0.0667726550079491,2,NA,NA,581,"Nee",NA,0.0202339734566952,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"M_IV","numeric",0.376788553259142,141,7.81015306122449,3.77,3.77,NA,7.81015306122449,NA,0.11,88.34,88.23,4.19674923703421,17.0256269617784,17.7998900242908,36.196186479744,NA,NA
+"M_IV_SD","numeric",0.379968203497615,104,1.26920512820513,0.61,0.61,NA,1.26920512820513,NA,0.14,9.96,9.82,3.14789309136106,12.738191280471,9.00078447946409,18.2569829404601,NA,NA
+"M_DV","numeric",0.379968203497615,63,6.01215384615385,3.6,3.6,NA,6.01215384615385,NA,0.42,102.6,102.18,5.84218738721924,23.6408601800949,32.7443262523,66.4178335953998,NA,NA
+"M_DV_SD","numeric",0.395866454689984,44,0.763236842105263,0.69,0.69,NA,0.763236842105263,NA,0.07,7.26,7.19,4.95368886561907,19.7888007759762,29.6253604854457,59.3257647893688,NA,NA
+"R","numeric",0.178060413354531,180,0.116056092843327,0.13,0.13,NA,0.116056092843327,NA,-0.34,0.56,0.9,-0.0947760284020379,-0.441156749973135,-0.558558419472793,-1.30244715135028,NA,NA
+"R_m_f","numeric",0.36724960254372,84,0.417185929648241,0.355,0.355,NA,0.417185929648241,NA,-0.16,0.83,0.99,0.0623888141792884,0.255017831183821,-0.805755600522856,-1.65084585512226,NA,NA
+"B","numeric",0.920508744038156,33,0.0676,0.025,0.025,NA,0.0676,NA,-0.28,0.77,1.05,1.33986597449498,1.99028989016299,2.69361549295607,2.03473441088673,NA,NA
+"P_W","factor",0.195548489666137,2,NA,NA,304,"Nee",NA,0.47968254464216,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_S","factor",0.195548489666137,2,NA,NA,420,"Nee",NA,0.282147822962396,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_P","factor",0.195548489666137,2,NA,NA,472,"Nee",NA,0.125357371619616,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_C","factor",0.195548489666137,2,NA,NA,414,"Nee",NA,0.297520661157025,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_I","factor",0.195548489666137,2,NA,NA,492,"Nee",NA,0.053804933681201,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_H","factor",0.195548489666137,2,NA,NA,450,"Nee",NA,0.196847318345858,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_po","factor",0.195548489666137,2,NA,NA,500,"Nee",NA,0.0234342045649831,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"P_ne","factor",0.195548489666137,2,NA,NA,490,"Nee",NA,0.0612413879298224,NA,NA,NA,NA,NA,NA,NA,NA,NA

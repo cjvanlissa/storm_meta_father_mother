@@ -49,24 +49,23 @@ if(!require(motley)){
 }
 library(metafor)
 library(metaSEM)
-
+if(file.exists("table23.csv")) file.remove("table23.csv")
 if(run_everything){
-  if(file.exists("table23.csv")) file.remove("table23.csv")
   source("data_cleaning.R")
-  source("data_preprocessing.R")
-  source("clean_moderators.R")
-  #source("pool_correlation_matrices_robust_se.R")
-  #pool_correlation_matrices()
-  #pool_correlation_matrices("age_group")
-  #pool_correlation_matrices("p_cluster")
-  #pool_correlation_matrices("same_wave")
-  source("fit_models.R")
-  source("fit_models_age_group.R")
-  source("fit_models_parenting_cluster.R")
-  source("fit_models_wave.R")
-} else {
-  load("Overallpooled.RData")
 }
+
+source("data_preprocessing.R")
+source("clean_moderators.R")
+source("pool_correlation_matrices_robust_se.R")
+pool_correlation_matrices()
+pool_correlation_matrices("age_group")
+pool_correlation_matrices("p_cluster")
+pool_correlation_matrices("same_wave")
+source("fit_models.R")
+source("fit_models_age_group.R")
+source("fit_models_parenting_cluster.R")
+source("fit_models_wave.R")
+load("pooled_Overall.RData")
 ```
 
 ```{r analysis-preferences}
@@ -76,7 +75,7 @@ knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 # To re-run the multigroup analysis:
 # source("data_wrangling_multigroup.R")
 # source("multigroup_model_constraints.R")
-load("subgroups.RData")
+#load("subgroups.RData")
 #load("results_multigroup.RData")
 #load("par_tables.RData")
 #load("metafor_t_test.RData")

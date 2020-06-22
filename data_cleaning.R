@@ -1,8 +1,7 @@
-if(!require(foreign)) install.packages("foreign")
-if(!require(psych)) install.packages("psych")
-if(!require(devtools)) install.packages("devtools")
-if(!require(motley)) install_github("cjvanlissa/motley")
-if(!require(worcs)) install_github("cjvanlissa/worcs")
+library("foreign")
+library("psych")
+library(motley)
+library(worcs)
 spss_data <- read.spss("Meta-codebook_5-02-2020.sav", to.data.frame = TRUE)
 spss_data[spss_data == 999] <- NA
 
@@ -24,5 +23,4 @@ spss_data <- spss_data[!rowSums(is.na(spss_data)) == max(rowSums(is.na(spss_data
 
 
 # Save to file ------------------------------------------------------------
-
-write.csv(spss_data, "data.csv", row.names = FALSE)
+open_data(spss_data)

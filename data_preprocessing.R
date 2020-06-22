@@ -1,4 +1,4 @@
-df <- read.csv("data.csv", stringsAsFactors = FALSE)
+df <- load_data(to_envir = FALSE)$data
 
 # Categorize parenting behaviors ------------------------------------------
 positive <- c("P_W", "P_S", "P_po", "P_C")

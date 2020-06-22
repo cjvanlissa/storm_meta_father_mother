@@ -1,8 +1,8 @@
 "name","type","missing","unique","mean","median","mode","mode_value","sd","v","min","max","range","skew","skew_2se","kurt","kurt_2se"
 "ID","numeric",0.112994350282486,77,31.2484076433121,36,36,NA,31.2484076433121,NA,1,80,79,0.35201947297696,1.80498935180318,-0.461731606457549,-1.18563315278722
 "NR","numeric",0.112994350282486,81,31.531847133758,36,36,NA,31.531847133758,NA,1,80,79,0.309162196735119,1.58523751077684,-0.526909261933641,-1.35299615777246
-"Eligible","factor",0.112994350282486,3,NA,NA,376,"yes",NA,0.50928536654631,NA,NA,NA,NA,NA,NA,NA
-"Exclude_reason","character",0,62,NA,NA,244,"                                                                                                                                                                                                                                                               ",NA,0.829694532222541,NA,NA,NA,NA,NA,NA,NA
+"Eligible","factor",0.112994350282486,3,NA,NA,377,"yes",NA,0.490917481439409,NA,NA,NA,NA,NA,NA,NA
+"Exclude_reason","character",0,50,NA,NA,300,"                                                                                                                                                                                                                                                               ",NA,0.767284305276262,NA,NA,NA,NA,NA,NA,NA
 "EXCLU0","character",0,1,NA,NA,708,"                                                                                                                                                                                                                                                               ",NA,0,NA,NA,NA,NA,NA,NA,NA
 "EXCLU1","character",0,1,NA,NA,708,"                                                                                                                                                                                                                                                               ",NA,0,NA,NA,NA,NA,NA,NA,NA
 "EXCLU2","character",0,1,NA,NA,708,"                                                                                                                                                                                                                                                               ",NA,0,NA,NA,NA,NA,NA,NA,NA
@@ -10,7 +10,7 @@
 "EXCLU4","character",0,1,NA,NA,708,"                                                                                                                                                                                                                                                               ",NA,0,NA,NA,NA,NA,NA,NA,NA
 "EXCLU5","character",0,1,NA,NA,708,"                                                                                                                                                                                                                                                               ",NA,0,NA,NA,NA,NA,NA,NA,NA
 "EXCLU6","character",0,1,NA,NA,708,"                                                                                                                                                                                                                                            ",NA,0,NA,NA,NA,NA,NA,NA,NA
-"ID_P","factor",0.169491525423729,2,NA,NA,295,"mother",NA,0.499994215373224,NA,NA,NA,NA,NA,NA,NA
+"ID_P","factor",0.17090395480226,2,NA,NA,294,"mother",NA,0.499998548911829,NA,NA,NA,NA,NA,NA,NA
 "ID_subgroup","character",0,9,NA,NA,430,"                                                                                                    ",NA,0.599556321618947,NA,NA,NA,NA,NA,NA,NA
 "ID_iv","character",0,62,NA,NA,146,"warmth                                                                                              ",NA,0.914141051422005,NA,NA,NA,NA,NA,NA,NA
 "ID_dv","character",0,38,NA,NA,133,"                                                                                                    ",NA,0.906185163905647,NA,NA,NA,NA,NA,NA,NA
@@ -115,9 +115,6 @@
 "R","numeric",0.269774011299435,180,0.116056092843327,0.13,0.13,NA,0.116056092843327,NA,-0.34,0.56,0.9,-0.0947760284020379,-0.441156749973135,-0.558558419472793,-1.30244715135028
 "R_m_f","numeric",0.437853107344633,84,0.417185929648241,0.355,0.355,NA,0.417185929648241,NA,-0.16,0.83,0.99,0.0623888141792884,0.255017831183821,-0.805755600522856,-1.65084585512226
 "B","numeric",0.929378531073446,33,0.0676,0.025,0.025,NA,0.0676,NA,-0.28,0.77,1.05,1.33986597449498,1.99028989016299,2.69361549295607,2.03473441088673
-"ID_Copy","numeric",0.135593220338983,80,31.6372549019608,36,36,NA,31.6372549019608,NA,1,79,78,0.271083091146444,1.37224989061827,-0.593027714412228,-1.5034055734672
-"Eligible_copy","factor",0.146892655367232,3,NA,NA,416,"yes",NA,0.477193982720056,NA,NA,NA,NA,NA,NA,NA
-"Lableparenting_copy","character",0,61,NA,NA,145,"                                                                                                    ",NA,0.91021098662581,NA,NA,NA,NA,NA,NA,NA
 "P_W","factor",0.285310734463277,2,NA,NA,304,"Nee",NA,0.47968254464216,NA,NA,NA,NA,NA,NA,NA
 "P_S","factor",0.285310734463277,2,NA,NA,420,"Nee",NA,0.282147822962396,NA,NA,NA,NA,NA,NA,NA
 "P_P","factor",0.285310734463277,2,NA,NA,472,"Nee",NA,0.125357371619616,NA,NA,NA,NA,NA,NA,NA
@@ -126,4 +123,3 @@
 "P_H","factor",0.285310734463277,2,NA,NA,450,"Nee",NA,0.196847318345858,NA,NA,NA,NA,NA,NA,NA
 "P_po","factor",0.285310734463277,2,NA,NA,500,"Nee",NA,0.0234342045649831,NA,NA,NA,NA,NA,NA,NA
 "P_ne","factor",0.285310734463277,2,NA,NA,490,"Nee",NA,0.0612413879298224,NA,NA,NA,NA,NA,NA,NA
-"filter_.","factor",0.112994350282486,2,NA,NA,376,"Selected",NA,0.480506308572356,NA,NA,NA,NA,NA,NA,NA
