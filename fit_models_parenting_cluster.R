@@ -2,6 +2,7 @@ library(metaSEM)
 library(tidySEM)
 library(ggplot2)
 source("pool_correlation_matrices_robust_se.R")
+set.seed(3638)
 pool_correlation_matrices("p_cluster")
 load("pooled_p_cluster.RData")
 
@@ -77,7 +78,7 @@ mx_multigroup_constraints <- do.call(mxModel, Args)
 fit_multigroup_constraints <- mxRun(mx_multigroup_constraints, intervals = TRUE)
 
 results <- table_results(fit_multigroup_constraints, columns = NULL)[c("label", "est_sig", "se", "pvalue", "confint")]
-
+results$confint[16]
 replace_these <- is.na(results$se)
 ses <- results$se[replace_these] <- sapply(results$label[replace_these], mxSE, model = fit_multigroup_constraints)
 

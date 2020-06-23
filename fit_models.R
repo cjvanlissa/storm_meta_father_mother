@@ -3,6 +3,7 @@ library(tidySEM)
 library(ggplot2)
 library(tidySEM)
 source("pool_correlation_matrices_robust_se.R")
+set.seed(3990)
 pool_correlation_matrices()
 load("pooled_overall.RData")
 # Name the subgroups list

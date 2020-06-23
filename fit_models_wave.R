@@ -2,6 +2,7 @@ library(metaSEM)
 library(tidySEM)
 library(ggplot2)
 source("pool_correlation_matrices_robust_se.R")
+set.seed(7784)
 pool_correlation_matrices("same_wave")
 load("pooled_same_wave.RData")
 

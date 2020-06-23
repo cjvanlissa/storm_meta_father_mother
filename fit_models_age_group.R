@@ -2,6 +2,7 @@ library(metaSEM)
 library(tidySEM)
 library(ggplot2)
 source("pool_correlation_matrices_robust_se.R")
+set.seed(623919)
 pool_correlation_matrices("age_group")
 load("pooled_age_group.RData")
 
