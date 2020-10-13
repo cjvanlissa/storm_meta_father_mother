@@ -101,3 +101,16 @@ res.RE3old <- rma(yi, vi, mods =~ factor(which_cor)-1, data=dat_3old, digits=3)
 res.RE3old
 predict(res.RE3old)
 
+load("pooled_country_US.RData")
+#Random effects model for non-US vs. US (R1)
+dat_US<- (subgroups[["US"]][["robust_estimates"]][["data"]])
+res.REUS <- rma(yi, vi, mods =~ factor(which_cor)-1, data=dat_US, digits=3)
+res.REUS
+predict(res.REUS)
+
+#Random effects model for non-US vs. US (R1)
+dat_nonUS<- (subgroups[["NONUS"]][["robust_estimates"]][["data"]])
+res.REnonUS <- rma(yi, vi, mods =~ factor(which_cor)-1, data=dat_nonUS, digits=3)
+res.REnonUS
+predict(res.REnonUS)
+
