@@ -108,4 +108,4 @@ edges(prep)$linetype <- rep(c(1,1,2), nrow(edges(prep))/3)
 
 p <- plot(prep)
 
-ggsave("figure_age.png", p, width = 10/2, height = 2)
+ggsave("figure_age3.png", p, width = 10/2, height = 2)
