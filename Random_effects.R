@@ -17,10 +17,9 @@ res.REtotal
 predict(res.REtotal)
 
 #Random effects model for total sample, with moderator of parents' sex. 
-dat_t <- (subgroups[["Main"]][["robust_estimates"]][["data"]])
-res.REtotal <- rma(yi, vi, mods=~ factor(which_cor)-1, data=dat, digits=3)
-res.REtotal
-predict(res.REtotal)
+res.REtotalt <- rma(yi, vi, mods=~ factor(which_cor)-1, data=dat, digits=3)
+res.REtotalt
+predict(res.REtotalt)
 
 #Random effects model for studies examining behavioral control (recoded to positive behavioral control), moderator of parents' sex. 
 load("pooled_p_cluster.RData")
@@ -28,6 +27,24 @@ dat_c <- (subgroups[["control"]][["robust_estimates"]][["data"]])
 res.REcontrol <- rma(yi, vi, mods =~ factor(which_cor)-1, data=dat_c, digits=3)
 res.REcontrol
 predict(res.REcontrol)
+
+#Random effects model for studies three forms of parental control, moderator of parents' sex. 
+load("pooled_p_control.RData")
+  #behavioral control
+dat_cb <- (subgroups[["behavioral"]][["robust_estimates"]][["data"]])
+res.REcontrolb <- rma(yi, vi, mods =~ factor(which_cor)-1, data=dat_cb, digits=3)
+res.REcontrolb
+predict(res.REcontrolb)
+  #inconsistent control
+dat_ci <- (subgroups[["inconsistent"]][["robust_estimates"]][["data"]])
+res.REcontroli <- rma(yi, vi, mods =~ factor(which_cor)-1, data=dat_ci, digits=3)
+res.REcontroli
+predict(res.REcontroli)
+  #psychological control
+dat_cp <- (subgroups[["psychological"]][["robust_estimates"]][["data"]])
+res.REcontrolp <- rma(yi, vi, mods =~ factor(which_cor)-1, data=dat_cp, digits=3)
+res.REcontrolp
+predict(res.REcontrolp)
 
 #Random effects model for studies examining parental warmth, moderator of parents' sex. 
 dat_w <- (subgroups[["positive"]][["robust_estimates"]][["data"]])
@@ -54,12 +71,14 @@ res.REpredictive <- rma(yi, vi, mods =~ factor(which_cor)-1, data=dat_predictive
 res.REpredictive
 predict(res.REpredictive)
 
+#Random effects model for studies examining pre-adolescent children, moderator of parents' sex. 
 load("pooled_age_group.RData")
 dat_young<- (subgroups[["Young"]][["robust_estimates"]][["data"]])
 res.REyoung <- rma(yi, vi, mods =~ factor(which_cor)-1, data=dat_young, digits=3)
-res.REyoung
+res.REyoungmaar 
 predict(res.REyoung)
 
+#Random effects model for studies examining adolescent children, moderator of parents' sex. 
 dat_old<- (subgroups[["Old"]][["robust_estimates"]][["data"]])
 res.REold <- rma(yi, vi, mods =~ factor(which_cor)-1, data=dat_old, digits=3)
 res.REold
