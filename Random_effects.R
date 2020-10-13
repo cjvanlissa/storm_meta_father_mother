@@ -83,3 +83,21 @@ dat_old<- (subgroups[["Old"]][["robust_estimates"]][["data"]])
 res.REold <- rma(yi, vi, mods =~ factor(which_cor)-1, data=dat_old, digits=3)
 res.REold
 predict(res.REold)
+
+#Random effects model for studies examining pre-adolescent children, moderator of parents' sex. 
+load("pooled_age_group3.RData")
+dat_3young<- (subgroups[["Young"]][["robust_estimates"]][["data"]])
+res.RE3young <- rma(yi, vi, mods =~ factor(which_cor)-1, data=dat_3young, digits=3)
+res.RE3young
+predict(res.RE3young)
+#Random effects model for studies examining adolescent children, moderator of parents' sex. 
+dat_3med<- (subgroups[["Med"]][["robust_estimates"]][["data"]])
+res.RE3med <- rma(yi, vi, mods =~ factor(which_cor)-1, data=dat_3med, digits=3)
+res.RE3med
+predict(res.RE3med)
+#Random effects model for studies examining adolescent children, moderator of parents' sex. 
+dat_3old<- (subgroups[["Old"]][["robust_estimates"]][["data"]])
+res.RE3old <- rma(yi, vi, mods =~ factor(which_cor)-1, data=dat_3old, digits=3)
+res.RE3old
+predict(res.RE3old)
+
