@@ -78,7 +78,7 @@ lay <- get_layout("M", "",
                   "", "A",
                   "F", "", rows = 3)
 nodes <- data.frame(name = c("A", "M", "F"),
-                    label = c("Child", "Mother", "Father"))
+                    label = c("Child's Prosocial Behavior", "Maternal Parenting", "Paternal Parenting"))
 
 edges <- results[grepl("^[AF]", results$label), c("label", "est_sig")]
 edges$from <- gsub("^.(on|with)(\\w).*$", "\\2", edges$label)
@@ -96,5 +96,5 @@ edges(prep)$linetype <- c(1,1,2)
 p <- plot(prep)
 p
 
-ggsave("figure_overall.png", p, width = 10/3, height = 2)
+ggsave("figure_overall.png", p, width = 14/3, height = 2)
 
