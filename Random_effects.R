@@ -16,6 +16,13 @@ res.REtotal <- rma(yi, vi, data=dat, digits=3)
 res.REtotal
 predict(res.REtotal)
 
+# Of je doet het apart per effect size, en maakt er gelijk een tabel van:
+t( # de functie t() roteert de tabel
+  sapply(unique(dat$which_cor), function(x){ # pas functie toe over de unieke waarden van which_cor
+  res <- rma(yi, vi, data=dat[dat$which_cor == x, ], digits=3)
+  predict(res)
+}))
+
 #Random effects model for total sample, with moderator of parents' sex. 
 res.REtotalt <- rma(yi, vi, mods=~ factor(which_cor)-1, data=dat, digits=3)
 res.REtotalt
