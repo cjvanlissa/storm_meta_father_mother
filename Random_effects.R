@@ -57,7 +57,8 @@ t<-data.frame(t(sapply(unique(dat$which_corR), function(x){
   res.REtotal <- rma(yi, vi, data=dat[dat$which_corR == x, ], digits=3)
   predict(res.REtotal)
 })))
-
+  #LET OP VRAAG CASPAR, VERSCHILLENDE ESTIMATES ETC.!? MET DE VOLGENDE MANIER VAN RANDOM EFFECTS ANALYSE:
+  res.REtotal <- rma(yi, vi, mods=~ factor(which_cor)-1, data=dat)
 #Random effects model including prediction intervals for each parenting dimension, with moderator of parents' sex. 
 # behavioral control (recoded to positive behavioral control): 
 tc<-data.frame(t(sapply(unique(dat_c$which_corR), function(x){ 
