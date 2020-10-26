@@ -1,10 +1,10 @@
-pool_correlation_matrices <- function(which_mod = NULL){
+pool_correlation_matrices <- function(which_mod = "country_US"){
   library(metaSEM)
   library(robumeta)
   library(clubSandwich)
   library(metafor)
   df_main <- read.csv("data_cleaned_mods.csv")
-  #which_mod <- NULL
+  #which_mod <- "country_US"
   
   #TEST
   if(!file.exists("table23.csv")){
@@ -106,5 +106,4 @@ pool_correlation_matrices <- function(which_mod = NULL){
   })
   # Name the subgroups list
   names(subgroups) <- levels(df_es_wide$moderator)
-  save(subgroups, file = paste0("pooled_", which_mod, ".RData"))
-}
+  save(subgroups, file = paste0("pooled_", which_mod, ".RData"))}

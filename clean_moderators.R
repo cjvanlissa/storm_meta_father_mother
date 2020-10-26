@@ -21,6 +21,7 @@ plot_profiles(fit_mix)
 plot_density(fit_mix)
 
 table(fit_mix$model_1_class_2$dff$Class)
+table(fit_mix$model_1_class_3$dff$Class)
 
 df$age_group <- factor(fit_mix$model_1_class_2$dff$Class, labels = c("Young", "Old"))
 rowSums(!table(df$age_group, df$ID) ==0)

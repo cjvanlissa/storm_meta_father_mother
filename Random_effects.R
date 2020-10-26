@@ -247,11 +247,19 @@ res.RE$CI.lb<-unlist(res.RE$CI.lb, recursive=TRUE, use.names=TRUE)
 res.RE$CI.ub<-unlist(res.RE$CI.ub, recursive=TRUE, use.names=TRUE)
 res.RE$PI.lb<-unlist(res.RE$PI.lb, recursive=TRUE, use.names=TRUE)
 res.RE$PI.ub<-unlist(res.RE$PI.ub, recursive=TRUE, use.names=TRUE)
+res.RE2 <- rapply(object = res.RE, f = round, classes = "numeric", how = "replace", digits = 3) 
 
 write.csv(res.RE, "results_RE.csv", row.names = TRUE)
 
 #Make table for heterogeneity tests per subgroup
 Moderator <- c('total sample', 'parental control', "parental warmth", 'low harsh parenting', 'behavioral control', 'inconsistent control', 'psychological control', 'concurrent', 'predictive', 'young', 'old', '3young', '3med', '3old','US','non US')
 QE <- c(Q1$QE, Q2a$QE, Q2b$QE, Q2c$QE, Q3a$QE, Q3b$QE, Q3c$QE, Q4a$QE, Q4b$QE, Q5a$QE, Q5b$QE, Q6a$QE, Q6b$QE, Q6c$QE, Q7a$QE, Q7b$QE)
-Pvalue <- c(Q1$QEp, Q2a$QEp, Q2b$QEp, Q2c$QEp, Q3a$QEp, Q3b$QEp, Q3c$QEp, Q4a$QEp, Q4b$QEp, Q5a$QEp, Q5b$QEp, Q6a$QEp, Q6b$QEp, Q6c$QEp, Q7a$QEp, Q7b$QEp)
+#Pvalue <- c(Q1$QEp, Q2a$QEp, Q2b$QEp, Q2c$QEp, Q3a$QEp, Q3b$QEp, Q3c$QEp, Q4a$QEp, Q4b$QEp, Q5a$QEp, Q5b$QEp, Q6a$QEp, Q6b$QEp, Q6c$QEp, Q7a$QEp, Q7b$QEp)
+  #as some p's are so small that they are reported as 0, I replaced it for <.0001. However everytime I change somehting to the syntax, we should check whether this is still the same!
+Pvalue <- "< .0001"
+
 QEresults <- data.frame(Moderator, QE, Pvalue, stringsAsFactors=FALSE)
+QEresults2 <- rapply(object = QEresults, f = round, classes = "numeric", how = "replace", digits = 4) 
+?rapply
+?write.csv
+write.csv(QEresults2, "results_QE.csv", row.names = FALSE)
