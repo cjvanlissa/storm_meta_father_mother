@@ -43,16 +43,13 @@ df$country_group[trimws(df$Country) %in% c("China", "CO")] <- "Non-Western"
 df$country_group[grepl(",", df$Country)] <- "Other"
 #rowSums(!table(df$country_group, df$ID) ==0)
 
-#additional moderator for non-USA vs. USA
+#additional moderator for non-USA vs. USA for reviewer 1 
 df$country_US<- "NONUS"
 df$country_US[trimws(df$Country) %in% c("US", "CA", "Canada", "US (mexican-origin)")] <- "US"
 df$country_US[trimws(df$Country) %in% c("CN, CO, IT, JO, KW, PH, SE, TH, US", "China, Colombia, Italy, Jordan, Kenya, Philipines, Sweden, Thailand, US", "cross-national; China, Colombia, Italie, Jordanie, Kenia, Filipijnen, Zweden, Thailand, US")] <- NA
 rowSums(!table(df$country_US, df$ID) ==0)
  
-
-
-
-#create moderator variable for parenting dimension positive vs. negative, positive vs. negative vs. control, warm vs sens vs neg vs cont.
+#create moderator variable for parenting dimension positive vs. negative, and dimensions positive (warm) vs. negative (low harsh) vs. control, 
 df$p_dimension[df$P_W == "Ja" | df$P_S == "Ja"| df$P_po =="Ja"] <- "positive"
 df$p_dimension[df$P_P== "Ja" | df$P_I== "Ja"| df$P_H=="Ja" | df$P_ne=="Ja" | df$P_C== "Ja"] <- "negative"
 #table(df$p_dimension)
@@ -61,11 +58,7 @@ df$p_cluster[df$P_W == "Ja" | df$P_S == "Ja" ] <- "positive"
 df$p_cluster[df$P_H=="Ja"  ] <- "negative"
 df$p_cluster[df$P_C== "Ja"| df$P_I=="Ja"|df$P_P== "Ja" ] <- "control"
 #table(df$p_cluster)
-#Extra check voor Reviewer 1 met random effects voor de 3 vormen van controle:
-df$p_control[df$P_C== "Ja"] <- "behavioral"
-df$p_control[df$P_I== "Ja"] <- "inconsistent"
-df$p_control[df$P_P== "Ja"] <- "psychological"
-#table(df$p_control)
+
 
 write.csv(df, "data_cleaned_mods.csv", row.names = FALSE)
 

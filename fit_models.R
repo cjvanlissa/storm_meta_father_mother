@@ -5,7 +5,7 @@ library(tidySEM)
 source("pool_correlation_matrices_robust_se.R")
 set.seed(3990)
 pool_correlation_matrices()
-load("pooled_overall.RData")
+load("pooled_Overall.RData")
 # Name the subgroups list
 #names(subgroups) <- gsub("[- ]", "", names(subgroups))
 

@@ -2,7 +2,7 @@ worcs_version: 0.1.2.1
 creator: Lissa102
 entry_point: manuscript/manuscript.Rmd
 checksums:
-  data.csv: b349e0b13cd3fabcfc87bf6976c9e90e
+  data.csv: a6e9e3efc4cf7bfe25bddace8c72e70c
 data:
   data.csv:
     codebook: codebook.Rmd

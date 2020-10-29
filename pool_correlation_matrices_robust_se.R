@@ -1,4 +1,4 @@
-pool_correlation_matrices <- function(which_mod = "country_US"){
+pool_correlation_matrices <- function(which_mod = NULL){
   library(metaSEM)
   library(robumeta)
   library(clubSandwich)

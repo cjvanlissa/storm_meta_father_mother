@@ -2,7 +2,7 @@ library(dplyr)
 source("pool_correlation_matrices_robust_se.R")
 set.seed(3990)
 pool_correlation_matrices()
-#to be able to run the following sPIipt, it is necessary to run the sPIipt "pool_correlation_matrices_robust_se.R" seperately for each moderator!"
+#to be able to run the following script, it is necessary to run the script "pool_correlation_matrices_robust_se.R" seperately for each moderator!"
 
 #First, I load all the dataframes needed for the random effects analyses, and recode which_cor in a way that it is clear for which subgroup the effect size is.
 load("pooled_Overall.RData")
@@ -16,14 +16,6 @@ dat_w <- (subgroups[["positive"]][["robust_estimates"]][["data"]])
 dat_w$which_corR <- recode(dat_w$which_cor, "m_a" = "warm_m_a", "f_a" = "warm_f_a","m_f" = "warm_m_f")
 dat_h <- (subgroups[["negative"]][["robust_estimates"]][["data"]])
 dat_h$which_corR <- recode(dat_h$which_cor, "m_a" = "harsh_m_a", "f_a" = "harsh_f_a","m_f" = "harsh_m_f")
-#For each specific form of behavioral control (for Reviewer1)
-load("pooled_p_control.RData")
-dat_cb <- (subgroups[["behavioral"]][["robust_estimates"]][["data"]])
-dat_cb$which_corR <- recode(dat_cb$which_cor, "m_a" = "bcontrol_m_a", "f_a" = "bcontrol_f_a","m_f" = "bcontrol_m_f")
-dat_ci <- (subgroups[["inconsistent"]][["robust_estimates"]][["data"]])
-dat_ci$which_corR <- recode(dat_ci$which_cor, "m_a" = "icontrol_m_a", "f_a" = "icontrol_f_a","m_f" = "icontrol_m_f")
-dat_cp <- (subgroups[["psychological"]][["robust_estimates"]][["data"]])
-dat_cp$which_corR <- recode(dat_cp$which_cor, "m_a" = "pcontrol_m_a", "f_a" = "pcontrol_f_a","m_f" = "pcontrol_m_f")
 #For concurrent vs. predictive studies
 load("pooled_same_wave.RData")
 dat_concurrent <- (subgroups[["Yes"]][["robust_estimates"]][["data"]])
@@ -36,14 +28,6 @@ dat_young<- (subgroups[["Young"]][["robust_estimates"]][["data"]])
 dat_young$which_corR <- recode(dat_young$which_cor, "m_a" = "young_m_a", "f_a" = "young_f_a","m_f" = "young_m_f")
 dat_old<- (subgroups[["Old"]][["robust_estimates"]][["data"]])
 dat_old$which_corR <- recode(dat_old$which_cor, "m_a" = "old_m_a", "f_a" = "old_f_a","m_f" = "old_m_f")
-#for young vs. med. vs old children (for reviewer 1)
-load("pooled_age_group3.RData")
-dat_3young<- (subgroups[["Young"]][["robust_estimates"]][["data"]])
-dat_3young$which_corR <- recode(dat_3young$which_cor, "m_a" = "3young_m_a", "f_a" = "3young_f_a","m_f" = "3young_m_f")
-dat_3med<- (subgroups[["Med"]][["robust_estimates"]][["data"]])
-dat_3med$which_corR <- recode(dat_3med$which_cor, "m_a" = "3med_m_a", "f_a" = "3med_f_a","m_f" = "3med_m_f")
-dat_3old<- (subgroups[["Old"]][["robust_estimates"]][["data"]])
-dat_3old$which_corR <- recode(dat_3old$which_cor, "m_a" = "3old_m_a", "f_a" = "3old_f_a","m_f" = "3old_m_f")
 #for US vs non-US samples (for reviewer 1)
 load("pooled_country_US.RData")
 dat_US<- (subgroups[["US"]][["robust_estimates"]][["data"]])
@@ -139,41 +123,6 @@ told2<-data.frame(t(sapply(unique(dat_old$which_corR), function(x){
 told<-cbind(told1[,"pred"], told1[,"se"], told2[,"pval"], told1[,"ci.lb"], told1[,"ci.ub"], told1[,"cr.lb"], told1[,"cr.ub"], told2[,"tau2"], told2[,"I2"], told2[,"QE"], told2[, "QEp"]) 
 colnames(told) <- c("Estimate", "SE", "P value", "CI lb", "CI ub", "PI lb", "PI ub", "Tau2", "I2", "QE", "QEp")
 
-#Random effects model for studies examining differentiation of 3 age-groups for reviewer 1, moderator of parents' sex. 
-#young
-t3young1<-data.frame(t(sapply(unique(dat_3young$which_corR), function(x){ 
-  res.RE3young <- rma(yi, vi, data=dat_3young[dat_3young$which_corR == x, ], digits=3)
-  predict(res.RE3young)
-})))
-t3young2<-data.frame(t(sapply(unique(dat_3young$which_corR), function(x){ 
-  res.RE3young <- rma(yi, vi, data=dat_3young[dat_3young$which_corR == x, ], digits=3)
-})))
-t3young<-cbind(t3young1[,"pred"], t3young1[,"se"], t3young2[,"pval"], t3young1[,"ci.lb"], t3young1[,"ci.ub"], t3young1[,"cr.lb"], t3young1[,"cr.ub"], t3young2[,"tau2"], t3young2[,"I2"], t3young2[,"QE"], t3young2[, "QEp"]) 
-colnames(t3young) <- c("Estimate", "SE", "P value", "CI lb", "CI ub", "PI lb", "PI ub", "Tau2", "I2", "QE", "QEp")
-
-#medium age
-t3med1<-data.frame(t(sapply(unique(dat_3med$which_corR), function(x){ 
-  res.RE3med <- rma(yi, vi, data=dat_3med[dat_3med$which_corR == x, ], digits=3)
-  predict(res.RE3med)
-})))
-t3med2<-data.frame(t(sapply(unique(dat_3med$which_corR), function(x){ 
-  res.RE3med <- rma(yi, vi, data=dat_3med[dat_3med$which_corR == x, ], digits=3)
-})))
-t3med<-cbind(t3med1[,"pred"], t3med1[,"se"], t3med2[,"pval"], t3med1[,"ci.lb"], t3med1[,"ci.ub"], t3med1[,"cr.lb"], t3med1[,"cr.ub"], t3med2[,"tau2"], t3med2[,"I2"], t3med2[,"QE"], t3med2[, "QEp"]) 
-colnames(t3med) <- c("Estimate", "SE", "P value", "CI lb", "CI ub", "PI lb", "PI ub", "Tau2", "I2", "QE", "QEp")
-
-#old 
-t3old1<-data.frame(t(sapply(unique(dat_3old$which_corR), function(x){ 
-  res.RE3old <- rma(yi, vi, data=dat_3old[dat_3old$which_corR == x, ], digits=3)
-  predict(res.RE3old)
-})))
-t3old2<-data.frame(t(sapply(unique(dat_3old$which_corR), function(x){ 
-  res.RE3old <- rma(yi, vi, data=dat_3old[dat_3old$which_corR == x, ], digits=3)
-})))
-t3old<-cbind(t3old1[,"pred"], t3old1[,"se"], t3old2[,"pval"], t3old1[,"ci.lb"], t3old1[,"ci.ub"], t3old1[,"cr.lb"], t3old1[,"cr.ub"], t3old2[,"tau2"], t3old2[,"I2"], t3old2[,"QE"], t3old2[, "QEp"]) 
-colnames(t3old) <- c("Estimate", "SE", "P value", "CI lb", "CI ub", "PI lb", "PI ub", "Tau2", "I2", "QE", "QEp")
-
-
 #Random effects model for non-US vs. US (for Reviewer 1)
 #US
 tUS1<-data.frame(t(sapply(unique(dat_US$which_corR), function(x){ 
@@ -199,7 +148,6 @@ colnames(tnonUS) <- c("Estimate", "SE", "P value", "CI lb", "CI ub", "PI lb", "P
 
 #Merge al results table into one table (without three age subgroups US/nonUS as we don't publish this but only mention in response to reviewer letter)
 res.RE<-data.frame(rbind(t, tc, tw, th, tconc, tpred, tyoung, told))
-#remove unnecessary columns, could not come up with a better way;)
 #Unlist, again, could not find a better way to do this
 res.RE$Estimate<-unlist(res.RE$Estimate, recursive=TRUE, use.names=TRUE)
 res.RE$SE<-unlist(res.RE$SE, recursive=TRUE, use.names=TRUE)
