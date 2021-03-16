@@ -8,6 +8,7 @@ pool_correlation_matrices()
 load("pooled_Overall.RData")
 dat<- (subgroups[["Main"]][["robust_estimates"]][["data"]])
 dat$which_corR <- recode(dat$which_cor, "m_a" = "total:m_a", "f_a" = "total:f_a","m_f" = "total:m_f")
+
 #For each parenting dimension
 load("pooled_p_cluster.RData")
 dat_c <- (subgroups[["control"]][["robust_estimates"]][["data"]])
@@ -164,4 +165,7 @@ res.RE$QEp<-unlist(res.RE$QEp, recursive=TRUE, use.names=TRUE)
 
 write.csv(res.RE, "results_RE.csv", row.names = TRUE)
 
-
+#additional analyses for publication bias
+yi, vi, data=dat)
+fsn(yi, vi, data=dat, type="Orwin")
+fsn(yi, vi, data=dat, type="Rosenberg")
