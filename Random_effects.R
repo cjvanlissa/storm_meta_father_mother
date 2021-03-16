@@ -166,6 +166,9 @@ res.RE$QEp<-unlist(res.RE$QEp, recursive=TRUE, use.names=TRUE)
 write.csv(res.RE, "results_RE.csv", row.names = TRUE)
 
 #additional analyses for publication bias
-yi, vi, data=dat)
+#standard
+fsn(yi, vi, data=dat)
+#Orwin
 fsn(yi, vi, data=dat, type="Orwin")
+#Rosenberg
 fsn(yi, vi, data=dat, type="Rosenberg")
