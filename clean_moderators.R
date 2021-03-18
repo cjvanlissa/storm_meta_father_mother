@@ -29,8 +29,10 @@ df$age_group3 <- factor(fit_mix$model_1_class_3$dff$Class, labels = c("Young", "
 rowSums(!table(df$age_group3, df$ID) ==0)
 fit_mix$model_1_class_2$estimates
 
-df$same_reporter <- FALSE
-df$same_reporter[df$P_CR == "Ja" & df$PB_CR == "Ja" | df$P_PR == "Ja" &  df$PB_PR == "Ja"  | df$P_OBS == "Ja" &  df$PB_OBS == "Ja"] <- TRUE
+df$same_reporter <- "Yes"
+df$same_reporter[df$P_CR == "Ja" & df$PB_CR == "Ja" | df$P_PR == "Ja" &  df$PB_PR == "Ja"  | df$P_OBS == "Ja" &  df$PB_OBS == "Ja"] <- "No"
+table(df$same_reporter)
+
 
 df$observation <- "survey"
 df$observation[df$P_OBS == "Ja" |  df$PB_OBS == "Ja"] <- "observation"
