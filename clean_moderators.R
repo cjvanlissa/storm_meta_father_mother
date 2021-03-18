@@ -36,7 +36,7 @@ table(df$same_reporter)
 
 df$observation <- "survey"
 df$observation[df$P_OBS == "Ja" |  df$PB_OBS == "Ja"] <- "observation"
-#table(df$observation)
+table(df$observation)
 
 df$same_wave <- ifelse(df$Design == "longitudinal", "No", "Yes")
 
@@ -59,7 +59,7 @@ df$p_dimension[df$P_P== "Ja" | df$P_I== "Ja"| df$P_H=="Ja" | df$P_ne=="Ja" | df$
 df$p_cluster[df$P_W == "Ja" | df$P_S == "Ja" ] <- "positive"
 df$p_cluster[df$P_H=="Ja"  ] <- "negative"
 df$p_cluster[df$P_C== "Ja"| df$P_I=="Ja"|df$P_P== "Ja" ] <- "control"
-#table(df$p_cluster)
+table(df$p_cluster)
 
 
 write.csv(df, "data_cleaned_mods.csv", row.names = FALSE)
