@@ -164,11 +164,3 @@ res.RE$QEp<-unlist(res.RE$QEp, recursive=TRUE, use.names=TRUE)
 #res.RE2 <- rapply(object = res.RE, f = round, classes = "numeric", how = "replace", digits = 3) 
 
 write.csv(res.RE, "results_RE.csv", row.names = TRUE)
-
-#additional analyses for publication bias
-#standard
-fsn(yi, vi, data=dat)
-#Orwin
-fsn(yi, vi, data=dat, type="Orwin")
-#Rosenberg
-fsn(yi, vi, data=dat, type="Rosenberg")
